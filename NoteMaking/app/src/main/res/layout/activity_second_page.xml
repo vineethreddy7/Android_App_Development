@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3984A6"
+    tools:context=".secondPage">
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="69dp"
+        android:layout_height="63dp"
+        android:background="@drawable/del"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="667dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="69dp"
+        android:layout_height="63dp"
+        android:background="@drawable/add"
+        tools:layout_editor_absoluteX="343dp"
+        tools:layout_editor_absoluteY="667dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="404dp"
+        android:layout_height="32dp"
+        android:text="create or edit a note"
+        android:textAlignment="center"
+        android:textColor="#FFEB3B"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="147dp" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="411dp"
+        android:layout_height="39dp"
+        android:background="@android:color/darker_gray"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="104dp" />
+
+    <SearchView
+        android:layout_width="404dp"
+        android:layout_height="41dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="63dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="409dp"
+        android:layout_height="60dp"
+        android:fontFamily="casual"
+        android:text="Take Note"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_dark"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="2dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
