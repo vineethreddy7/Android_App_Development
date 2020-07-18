@@ -3,18 +3,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/delCat"
+        android:id="@+id/delnote"
         android:icon="@drawable/ic_baseline_delete_24"
-        android:title="deletecat"
+        android:title="itemdel"
         app:showAsAction="always" />
     <item
-        android:id="@+id/searchCat"
-        android:icon="@drawable/ic_baseline_search_24"
-        android:title="search"
+        android:id="@+id/editbtn"
+        android:icon="@android:drawable/ic_menu_edit"
+        android:title="edit"
         app:showAsAction="always" />
     <item
-        android:id="@+id/addCat"
-        android:icon="@drawable/ic_baseline_add_24"
-        android:title="Category"
+        android:id="@+id/map"
+        android:icon="@drawable/ic_baseline_location_on_24"
+        android:title="map"
         app:showAsAction="always" />
 </menu>

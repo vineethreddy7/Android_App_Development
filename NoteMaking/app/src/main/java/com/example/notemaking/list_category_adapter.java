@@ -12,10 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class list_category_adapter extends BaseAdapter {
-    private ArrayList<Notes> notedata = new ArrayList<Notes>();
+    private ArrayList<String> notedata = new ArrayList<String>();
     private LayoutInflater layoutInflater;
 
-    public list_category_adapter(Context context,ArrayList<Notes> notedata){
+    public list_category_adapter(Context context,ArrayList<String> notedata){
         this.notedata = notedata;
         layoutInflater = LayoutInflater.from(context);
     }
@@ -47,7 +47,7 @@ public class list_category_adapter extends BaseAdapter {
             view.setTag(holder);
         } else
             holder = (ViewHolder) view.getTag();
-        holder.tvCLR.setText(notedata.get(i).getSubject());
+        holder.tvCLR.setText(notedata.get(i));
 
         return view;
 
