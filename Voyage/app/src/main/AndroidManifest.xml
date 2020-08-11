@@ -9,7 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HomeScreenActivity"></activity>
+        <activity android:name=".Offers_Activity"></activity>
+        <activity android:name=".Available_Activity" />
+        <activity android:name=".Reservation_Activity" />
+        <activity android:name=".Picture_Activity" />
+        <activity android:name=".HostSignupActivity" />
+        <activity android:name=".HostHomeScreenActivity" />
+        <activity android:name=".SignupActivityTraveler" />
+        <activity android:name=".HomeScreenActivity" />
         <activity android:name=".MainActivity2" />
         <activity android:name=".OptionActivity" />
         <activity android:name=".SplashScreenActivity">

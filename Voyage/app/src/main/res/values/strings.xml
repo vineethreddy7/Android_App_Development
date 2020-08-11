@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">Voyage</string>
+    <string-array name="categories">
+        <item>Boating</item>
+        <item>Kayak</item>
+        <item>TrekKing</item>
+        <item>Scuba Diving</item>
+        <item>River Raft</item>
+        <item>Surfing</item>
+        <item>Skydive</item>
+        <item>SnowBoard</item>
+    </string-array>
+    <string-array name="Bcategories">
+        <item>Boat Rentals</item>
+        <item>Kayak Rentals</item>
+        <item>Restaurant</item>
+        <item>Hotels</item>
+        <item>Car Rentals</item>
+        <item>Surfing Board Rentals</item>
+        <item>Bike Rentals</item>
+        <item>SnowBoard Rentals</item>
+        <item>Bicycle Rentals</item>
+    </string-array>
 </resources>

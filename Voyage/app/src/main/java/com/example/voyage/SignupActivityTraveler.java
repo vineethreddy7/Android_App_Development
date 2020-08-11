@@ -9,29 +9,31 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
-public class MainActivity2 extends AppCompatActivity {
-    Button loginHost,signupHost;
+public class SignupActivityTraveler extends AppCompatActivity {
+    Button ButtonTravCreate, ButtonTravCancel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_main2);
-        loginHost = (Button) findViewById(R.id.hostlogin);
-        signupHost = (Button) findViewById(R.id.hostsignup);
-        loginHost.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_signup_traveler);
+        ButtonTravCreate = (Button) findViewById(R.id.HostButtonCreate);
+        ButtonTravCancel = (Button) findViewById(R.id.HostButtonCancel);
+        ButtonTravCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity2.this, HostHomeScreenActivity.class);
+                Intent intent = new Intent(SignupActivityTraveler.this, MainActivity.class);
                 startActivity(intent);
             }
         });
-        signupHost.setOnClickListener(new View.OnClickListener() {
+        ButtonTravCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity2.this, HostSignupActivity.class);
+                Intent intent = new Intent(SignupActivityTraveler.this, MainActivity.class);
                 startActivity(intent);
             }
         });
     }
+
 }

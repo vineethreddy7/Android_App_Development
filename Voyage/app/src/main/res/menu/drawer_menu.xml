@@ -3,8 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
-    <item android:id="@+id/services" android:icon="@drawable/services" android:title="Services near me"/>
+    <item android:title="Menu">
+        <menu>
+
+        <item android:id="@+id/visited" android:icon="@drawable/visitedpl" android:title="Places Other Visited" />
+        <item android:id="@+id/services" android:icon="@drawable/services" android:title="Services near me" />
     <item android:id="@+id/adventure" android:icon="@drawable/adventures" android:title="Adventures near me"/>
     <item android:id="@+id/weather" android:icon="@drawable/weather" android:title="Weather"/>
     <item android:id="@+id/compass" android:icon="@drawable/compass" android:title="Compass"/>
@@ -14,5 +17,6 @@
     <item android:id="@+id/share" android:icon="@drawable/sharewithfriends" android:title="Share the App"/>
     <item android:id="@+id/Rate" android:icon="@drawable/rate" android:title="Rate the App"/>
     <item android:id="@+id/help" android:icon="@drawable/help" android:title="Help"/>
-</group>
+        </menu>
+</item>
 </menu>
