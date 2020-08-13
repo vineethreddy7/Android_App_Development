@@ -2,6 +2,8 @@ package com.example.voyage;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -17,10 +20,17 @@ import android.widget.PopupMenu;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener, AdapterView.OnItemSelectedListener {
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
     //private Spinner spinner;
+    RecyclerView rv;
+    List<details_place> place;
+    list_place_adapter ad;
+    List<details_place> placelist = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,11 +38,24 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_home_screen);
         Spinner spinner = findViewById(R.id.spinnerCat);
+        rv = findViewById(R.id.rVHome);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.categories,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+        add();
+        rv.setLayoutManager(new LinearLayoutManager(this,RecyclerView.HORIZONTAL,false));
+        ad = new list_place_adapter(this,placelist);
+        rv.setAdapter(ad);
+
     }
+
+    public void add(){
+        placelist.add(new details_place("London","$2000","UK",R.drawable.london));
+        placelist.add(new details_place("Sydney","$3000","Australia",R.drawable.sydney));
+
+    }
+
     public void showPopup(View v){
         PopupMenu popup = new PopupMenu(this, v);
         popup.setOnMenuItemClickListener(this);
