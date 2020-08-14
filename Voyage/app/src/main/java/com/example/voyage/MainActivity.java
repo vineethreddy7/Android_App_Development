@@ -8,22 +8,30 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     Button mainTrav,signupTrav;
+    TextView TEmailtv,TPwdTv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
-        mainTrav = (Button) findViewById(R.id.TravMain);
-        signupTrav = (Button) findViewById(R.id.travSignup);
+        TEmailtv = findViewById(R.id.tv2TEmail);
+        TPwdTv = findViewById(R.id.tv2Tpwd);
+        mainTrav = (Button) findViewById(R.id.btnTLogin);
+        signupTrav = (Button) findViewById(R.id.btnTSignup);
         mainTrav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, HomeScreenActivity.class);
-                startActivity(intent);
+                DataBase db = new DataBase(MainActivity.this);
+                Travellers t = db.getTraveller(TEmailtv.getText().toString());
+                if(TPwdTv.getText().toString().equals(t.getPassword())) {
+                    Intent intent = new Intent(MainActivity.this, HomeScreenActivity.class);
+                    startActivity(intent);
+                }
             }
         });
         signupTrav.setOnClickListener(new View.OnClickListener() {

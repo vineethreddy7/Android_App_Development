@@ -6,6 +6,111 @@
     android:layout_height="match_parent"
     android:background="#D3EBF6"
     tools:context=".HostSignupActivity">
+
+    <EditText
+        android:id="@+id/tvHRPwd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginRight="56dp"
+        android:ems="10"
+        android:fontFamily="@font/chewy"
+        android:hint="Re-enter password"
+        android:inputType="textPassword"
+        android:textColor="#000000"
+        android:textColorHint="#E3C7C7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView27"
+        app:layout_constraintTop_toBottomOf="@+id/tvHPwd" />
+
+    <EditText
+        android:id="@+id/tvHPwd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:ems="10"
+        android:fontFamily="@font/chewy"
+        android:hint="Enter Password"
+        android:inputType="none|textPassword"
+        android:textColor="#000000"
+        android:textColorHint="#E3C7C7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView26"
+        app:layout_constraintTop_toBottomOf="@+id/tvHPhone" />
+
+    <EditText
+        android:id="@+id/tvHPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:fontFamily="@font/chewy"
+        android:hint="Enter Phone"
+        android:inputType="textPersonName"
+        android:textColor="#000000"
+        android:textColorHint="#E3C7C7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.913"
+        app:layout_constraintStart_toEndOf="@+id/textView25"
+        app:layout_constraintTop_toBottomOf="@+id/tvHEmail" />
+
+    <EditText
+        android:id="@+id/tvHEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:ems="10"
+        android:fontFamily="@font/chewy"
+        android:hint="Enter Email"
+        android:inputType="textPersonName"
+        android:textColor="#000000"
+        android:textColorHint="#E3C7C7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView24"
+        app:layout_constraintTop_toBottomOf="@+id/tvHLname" />
+
+    <EditText
+        android:id="@+id/tvHFname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:ems="10"
+        android:fontFamily="@font/chewy"
+        android:hint="Enter First Name"
+        android:inputType="textPersonName"
+        android:textColor="#000000"
+        android:textColorHint="#E3C7C7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView22"
+        app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+    <EditText
+        android:id="@+id/tvHLname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:fontFamily="@font/chewy"
+        android:hint="Enter Last Name"
+        android:inputType="textPersonName"
+        android:textColor="#000000"
+        android:textColorHint="#E3C7C7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.272"
+        app:layout_constraintStart_toEndOf="@+id/textView23"
+        app:layout_constraintTop_toBottomOf="@+id/tvHFname" />
+
     <TextView
         android:id="@+id/textView27"
         android:layout_width="wrap_content"
@@ -104,108 +209,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
-    <EditText
-        android:id="@+id/tvHFName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:ems="10"
-        android:fontFamily="@font/chewy"
-        android:hint="Enter First Name"
-        android:inputType="textPersonName"
-        android:textColor="#000000"
-        android:textColorHint="#E3C7C7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.583"
-        app:layout_constraintStart_toEndOf="@+id/textView22"
-        app:layout_constraintTop_toBottomOf="@+id/textView21" />
-
-    <EditText
-        android:id="@+id/tvHLName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:fontFamily="@font/chewy"
-        android:hint="Enter Last Name"
-        android:inputType="textPersonName"
-        android:textColor="#000000"
-        android:textColorHint="#E3C7C7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.583"
-        app:layout_constraintStart_toEndOf="@+id/textView23"
-        app:layout_constraintTop_toBottomOf="@+id/tvHFName" />
-
-    <EditText
-        android:id="@+id/tv1HEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
-        android:layout_marginLeft="7dp"
-        android:layout_marginTop="18dp"
-        android:ems="10"
-        android:fontFamily="@font/chewy"
-        android:hint="Enter Email Id"
-        android:inputType="textPersonName"
-        android:textColor="#000000"
-        android:textColorHint="#E3C7C7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.565"
-        app:layout_constraintStart_toEndOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/tvHLName" />
-
-    <EditText
-        android:id="@+id/tvHPhone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:fontFamily="@font/chewy"
-        android:hint="Enter Phone no"
-        android:inputType="textPersonName"
-        android:textColor="#000000"
-        android:textColorHint="#E3C7C7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.583"
-        app:layout_constraintStart_toEndOf="@+id/textView25"
-        app:layout_constraintTop_toBottomOf="@+id/tv1HEmail" />
-
-    <EditText
-        android:id="@+id/tv1HPwd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:fontFamily="@font/chewy"
-        android:hint="Enter Your Password"
-        android:inputType="textPassword"
-        android:textColor="#000000"
-        android:textColorHint="#E3C7C7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.894"
-        app:layout_constraintStart_toEndOf="@+id/textView26"
-        app:layout_constraintTop_toBottomOf="@+id/tvHPhone" />
-
-    <EditText
-        android:id="@+id/tvHRPwd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:fontFamily="@font/chewy"
-        android:hint="Re-Type Password"
-        android:inputType="textPassword"
-        android:textColor="#000000"
-        android:textColorHint="#E3C7C7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.988"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv1HPwd" />
-
     <Button
-        android:id="@+id/HostButtonCancel"
+        android:id="@+id/HButtonCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="84dp"
@@ -217,15 +222,18 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.975"
+        app:layout_constraintStart_toEndOf="@+id/button3"
         app:layout_constraintTop_toBottomOf="@+id/tvHRPwd"
-        app:layout_constraintVertical_bias="0.496" />
+        app:layout_constraintVertical_bias="0.236" />
 
     <Button
-        android:id="@+id/HostButtonCreate"
+        android:id="@+id/HButtonCreate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginLeft="84dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginLeft="68dp"
+        android:layout_marginBottom="132dp"
         android:background="@color/yellow"
         android:fontFamily="@font/chewy"
         android:text="Create"
@@ -233,8 +241,7 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvHRPwd"
-        app:layout_constraintVertical_bias="0.496" />
+        app:layout_constraintTop_toBottomOf="@+id/textView27" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,25 +22,25 @@ public class HostSignupActivity extends AppCompatActivity implements AdapterView
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_host_signup);
-        hfnameTv = findViewById(R.id.tvHFName);
-        hlnameTv = findViewById(R.id.tvHLName);
-        hemailTv = findViewById(R.id.tv1HEmail);
+        hfnameTv = findViewById(R.id.tvHFname);
+        hlnameTv = findViewById(R.id.tvHLname);
+        hemailTv = findViewById(R.id.tvHEmail);
         hphoneTv = findViewById(R.id.tvHPhone);
-        hpwdTv = findViewById(R.id.tv1HPwd);
+        hpwdTv = findViewById(R.id.tvHPwd);
         hrpwdTv = findViewById(R.id.tvHRPwd);
        // Spinner spinner = findViewById(R.id.Businessspinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.Bcategories,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
       //  spinner.setAdapter(adapter);
       //  spinner.setOnItemSelectedListener(this);
-        ButtonHostCreate = (Button) findViewById(R.id.HostButtonCreate);
-        ButtonHostCancel = (Button) findViewById(R.id.HostButtonCancel);
+        ButtonHostCreate = (Button) findViewById(R.id.HButtonCreate);
+        ButtonHostCancel = (Button) findViewById(R.id.HButtonCancel);
         ButtonHostCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(hpwdTv.getText().toString().equals(hrpwdTv.getText().toString())) {
                     Hosts host = new Hosts(hfnameTv.getText().toString(), hlnameTv.getText().toString(), hemailTv.getText().toString(), hphoneTv.getText().toString(), hpwdTv.getText().toString());
-                    HostSignupDB db = new HostSignupDB(HostSignupActivity.this);
+                    DataBase db = new DataBase(HostSignupActivity.this);
                     db.addHost(host);
                     Toast.makeText(HostSignupActivity.this,"Profile Created",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(HostSignupActivity.this, MainActivity2.class);

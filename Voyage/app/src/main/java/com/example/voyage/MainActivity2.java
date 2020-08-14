@@ -21,13 +21,13 @@ public class MainActivity2 extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main2);
         HEmailTv1 = findViewById(R.id.tv1HEmail);
-        HPwdTv1 = findViewById(R.id.tv1HPwd);
+        HPwdTv1 = findViewById(R.id.tv1hPwd);
         loginHost = (Button) findViewById(R.id.hostlogin);
         signupHost = (Button) findViewById(R.id.hostsignup);
         loginHost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HostSignupDB db = new HostSignupDB(MainActivity2.this);
+                DataBase db = new DataBase(MainActivity2.this);
                 Hosts h = db.getHost(HEmailTv1.getText().toString());
                 if(h.equals(0)){
                     Toast.makeText(MainActivity2.this,"User Not Found",Toast.LENGTH_SHORT).show();
