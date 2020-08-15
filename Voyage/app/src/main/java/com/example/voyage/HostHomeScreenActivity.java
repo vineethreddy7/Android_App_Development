@@ -76,7 +76,7 @@ public class HostHomeScreenActivity extends AppCompatActivity implements PopupMe
     }
     public void profileDialog(){
         dialogBuilder = new AlertDialog.Builder(this);
-        final View contactPopup = getLayoutInflater().inflate(R.layout.hostpopup, null);
+        final View contactPopup = getLayoutInflater().inflate(R.layout.activity_hostprofile, null);
         dialogBuilder.setView(contactPopup);
         dialog = dialogBuilder.create();
         dialog.show();

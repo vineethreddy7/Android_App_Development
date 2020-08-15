@@ -39,7 +39,7 @@ public class HostSignupActivity extends AppCompatActivity implements AdapterView
             @Override
             public void onClick(View v) {
                 if(hpwdTv.getText().toString().equals(hrpwdTv.getText().toString())) {
-                    Hosts host = new Hosts(hfnameTv.getText().toString(), hlnameTv.getText().toString(), hemailTv.getText().toString(), hphoneTv.getText().toString(), hpwdTv.getText().toString());
+                    Hosts host = new Hosts(hfnameTv.getText().toString(), hlnameTv.getText().toString(), hemailTv.getText().toString(), hphoneTv.getText().toString(), hpwdTv.getText().toString(),"");
                     DataBase db = new DataBase(HostSignupActivity.this);
                     db.addHost(host);
                     Toast.makeText(HostSignupActivity.this,"Profile Created",Toast.LENGTH_SHORT).show();

@@ -30,10 +30,11 @@ public class DataBase extends SQLiteOpenHelper {
     private static final String HostEmail = "hostemail";
     private static final String HostPhone = "hostphone";
     private static final String HostPassword = "hostpassword";
+    private static final String HostImage = "hostimage";
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE "+TableName+"("+HostFirstName+" TEXT,"+HostLastName+" TEXT,"+HostEmail+" TEXT PRIMARY KEY NOT NULL UNIQUE,"+HostPhone+" TEXT,"+HostPassword+" TEXT"+")");
+        db.execSQL("CREATE TABLE "+TableName+"("+HostFirstName+" TEXT,"+HostLastName+" TEXT,"+HostEmail+" TEXT PRIMARY KEY NOT NULL UNIQUE,"+HostPhone+" TEXT,"+HostPassword+" TEXT,"+HostImage+" TEXT"+")");
         db.execSQL("CREATE TABLE "+tablename+"("+travellerFname+" TEXT,"+travellerLname+" TEXT,"+travellerEmail+" TEXT PRIMARY KEY NOT NULL UNIQUE,"+travellerPhone+" TEXT,"+travellerPwd+" TEXT"+")");
 
     }
@@ -53,23 +54,37 @@ public class DataBase extends SQLiteOpenHelper {
         c.put(HostEmail,h.getEmail());
         c.put(HostPhone,h.getPhone());
         c.put(HostPassword,h.getPassword());
+        c.put(HostImage,h.getImage());
         long i = db.insert(TableName,null,c);
         Log.d("Inserted",""+i);
     }
 
     public Hosts getHost(String email){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor c = db.query(TableName,new String[]{HostFirstName,HostLastName,HostEmail,HostPhone,HostPassword},HostEmail+"=?",new String[]{String.valueOf(email)},null,null,null,null);
+        Cursor c = db.query(TableName,new String[]{HostFirstName,HostLastName,HostEmail,HostPhone,HostPassword,HostImage},HostEmail+"=?",new String[]{String.valueOf(email)},null,null,null,null);
         Log.d("String ",""+c);
         if(!c.equals(null)){
             c.moveToFirst();
 
-        Hosts h = new Hosts(c.getString(0),c.getString(1),c.getString(2),c.getString(3),c.getString(4));
+        Hosts h = new Hosts(c.getString(0),c.getString(1),c.getString(2),c.getString(3),c.getString(4),c.getString(5));
         return h;}
         else if(c.equals(null)) {
             return null;
         }
         return null;
+    }
+
+    public void editHost(Hosts h){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues c = new ContentValues();
+        c.put(HostFirstName,h.getFirstname());
+        c.put(HostLastName,h.getLastname());
+        c.put(HostEmail,h.getEmail());
+        c.put(HostPhone,h.getPhone());
+        c.put(HostPassword,h.getPassword());
+        c.put(HostImage,h.getImage());
+        int i = db.update(TableName,c,HostEmail+"=?",new String[]{String.valueOf(h.getEmail())});
+        Log.d("Table Updated",""+i);
     }
 
     //traveller table
@@ -105,4 +120,6 @@ public class DataBase extends SQLiteOpenHelper {
         return t;
 
     }
+
+
 }

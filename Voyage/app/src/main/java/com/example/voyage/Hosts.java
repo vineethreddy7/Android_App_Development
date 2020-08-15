@@ -6,13 +6,17 @@ public class Hosts {
     private String email;
     private String phone;
     private String password;
+    private String image;
 
-    public Hosts(String firstname, String lastname, String email, String phone, String password) {
+
+
+    public Hosts(String firstname, String lastname, String email, String phone, String password, String image) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.phone = phone;
         this.password = password;
+        this.image = image;
     }
 
     public String getFirstname() {
@@ -53,5 +57,13 @@ public class Hosts {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
