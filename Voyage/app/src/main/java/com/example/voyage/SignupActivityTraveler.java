@@ -33,7 +33,7 @@ public class SignupActivityTraveler extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(tpwdTv.getText().toString().equals(trpwdTv.getText().toString())) {
-                    Travellers t = new Travellers(tfnameTv.getText().toString(),tlnameTv.getText().toString(),temailTv.getText().toString(),tphoneTv.getText().toString(),tpwdTv.getText().toString());
+                    Travellers t = new Travellers(tfnameTv.getText().toString(),tlnameTv.getText().toString(),temailTv.getText().toString(),tphoneTv.getText().toString(),tpwdTv.getText().toString(),"");
                     DataBase db = new DataBase(SignupActivityTraveler.this);
                     db.addTraveller(t);
                     Toast.makeText(SignupActivityTraveler.this,"Profile Created",Toast.LENGTH_SHORT).show();

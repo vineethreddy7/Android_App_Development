@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
                 Travellers t = db.getTraveller(TEmailtv.getText().toString());
                 if(TPwdTv.getText().toString().equals(t.getPassword())) {
                     Intent intent = new Intent(MainActivity.this, HomeScreenActivity.class);
+                    intent.putExtra("email",t.getEmail());
                     startActivity(intent);
                 }
             }

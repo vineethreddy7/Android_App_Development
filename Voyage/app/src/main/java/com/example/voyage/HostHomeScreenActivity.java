@@ -17,12 +17,15 @@ public class HostHomeScreenActivity extends AppCompatActivity implements PopupMe
     Button buttonUploadPicture,buttonReservation,buttonAvailable,buttonOffer;
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
+    String email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_host_home_screen);
+        Intent i = getIntent();
+        email = i.getStringExtra("email");
         buttonUploadPicture = (Button) findViewById(R.id.uploadPictureButton);
         buttonReservation = (Button) findViewById(R.id.ReservationButton);
         buttonAvailable = (Button) findViewById(R.id.AvailableButton);
@@ -66,7 +69,9 @@ public class HostHomeScreenActivity extends AppCompatActivity implements PopupMe
     public boolean onMenuItemClick(MenuItem menuItem) {
         int id = menuItem.getItemId();
         if(id == R.id.profile){
-            profileDialog();
+            Intent intent = new Intent(HostHomeScreenActivity.this, Hostprofile.class);
+            intent.putExtra("email",email);
+            startActivity(intent);
         }
         if(id == R.id.signout){
             Intent intent = new Intent(HostHomeScreenActivity.this, MainActivity2.class);

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.voyage">
-    <uses-permission android:name="android.permission.CAMERA" />
 
 
     <application
@@ -12,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".travellerprofile"></activity>
-        <activity android:name=".hostprofile" />
+        <activity android:name=".Hostprofile" />
         <activity android:name=".Offers_Activity" />
         <activity android:name=".Available_Activity" />
         <activity android:name=".Reservation_Activity" />

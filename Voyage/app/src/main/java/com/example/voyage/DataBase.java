@@ -15,7 +15,7 @@ import java.util.List;
 public class DataBase extends SQLiteOpenHelper {
 
 
-    private static final String DataBaseName = "DB1.db";
+    private static final String DataBaseName = "DB4.db";
 
 
 
@@ -35,7 +35,7 @@ public class DataBase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE "+TableName+"("+HostFirstName+" TEXT,"+HostLastName+" TEXT,"+HostEmail+" TEXT PRIMARY KEY NOT NULL UNIQUE,"+HostPhone+" TEXT,"+HostPassword+" TEXT,"+HostImage+" TEXT"+")");
-        db.execSQL("CREATE TABLE "+tablename+"("+travellerFname+" TEXT,"+travellerLname+" TEXT,"+travellerEmail+" TEXT PRIMARY KEY NOT NULL UNIQUE,"+travellerPhone+" TEXT,"+travellerPwd+" TEXT"+")");
+        db.execSQL("CREATE TABLE "+tablename+"("+travellerFname+" TEXT,"+travellerLname+" TEXT,"+travellerEmail+" TEXT PRIMARY KEY NOT NULL UNIQUE,"+travellerPhone+" TEXT,"+travellerPwd+" TEXT,"+travellerImg+" TEXT"+")");
 
     }
 
@@ -94,6 +94,7 @@ public class DataBase extends SQLiteOpenHelper {
     private static final String travellerEmail = "travelleremail";
     private static final String travellerPhone = "travellerphone";
     private static final String travellerPwd = "travellerpwd";
+    private static final String travellerImg = "travellerimage";
 
 
 
@@ -105,6 +106,7 @@ public class DataBase extends SQLiteOpenHelper {
         c.put(travellerEmail,t.getEmail());
         c.put(travellerPhone,t.getPhone());
         c.put(travellerPwd,t.getPassword());
+        c.put(travellerImg,t.getImage());
         long i = db.insert(tablename,null,c);
         Log.d("Inserted",""+i);
 
@@ -112,12 +114,26 @@ public class DataBase extends SQLiteOpenHelper {
 
     public Travellers getTraveller(String email){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor c = db.query(tablename,new String[]{travellerFname,travellerLname,travellerEmail,travellerPhone,travellerPwd},travellerEmail+"=?",new String[]{String.valueOf(email)},null,null,null,null);
+        Cursor c = db.query(tablename,new String[]{travellerFname,travellerLname,travellerEmail,travellerPhone,travellerPwd,travellerImg},travellerEmail+"=?",new String[]{String.valueOf(email)},null,null,null,null);
         if(c!=null){
             c.moveToFirst();
         }
-        Travellers t = new Travellers(c.getString(0),c.getString(1),c.getString(2),c.getString(3),c.getString(4));
+        Travellers t = new Travellers(c.getString(0),c.getString(1),c.getString(2),c.getString(3),c.getString(4),c.getString(5));
         return t;
+
+    }
+
+    public void editTraveller(Travellers t){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues c = new ContentValues();
+        c.put(travellerFname,t.getFname());
+        c.put(travellerLname,t.getLname());
+        c.put(travellerEmail,t.getEmail());
+        c.put(travellerPhone,t.getPhone());
+        c.put(travellerPwd,t.getPassword());
+        c.put(travellerImg,t.getImage());
+        int i = db.update(tablename,c,travellerEmail+"=?",new String[]{String.valueOf(t.getEmail())});
+        Log.d("Table Updated",""+i);
 
     }
 

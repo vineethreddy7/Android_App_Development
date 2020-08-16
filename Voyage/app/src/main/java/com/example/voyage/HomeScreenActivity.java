@@ -31,6 +31,7 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
     List<details_place> place;
     list_place_adapter ad;
     List<details_place> placelist = new ArrayList<>();
+    String email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +39,8 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_home_screen);
         Spinner spinner = findViewById(R.id.spinnerCat);
+        Intent i = getIntent();
+        email = i.getStringExtra("email");
         rv = findViewById(R.id.rVHome);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.categories,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -66,20 +69,15 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
     public boolean onMenuItemClick(MenuItem menuItem) {
         int id = menuItem.getItemId();
         if(id == R.id.profile){
-            profileDialog();
+            Intent intent = new Intent(HomeScreenActivity.this, travellerprofile.class);
+            intent.putExtra("email",email);
+            startActivity(intent);
         }
         if(id == R.id.signout){
             Intent intent = new Intent(HomeScreenActivity.this, MainActivity.class);
             startActivity(intent);
         }
         return false;
-    }
-    public void profileDialog(){
-        dialogBuilder = new AlertDialog.Builder(this);
-        final View contactPopup = getLayoutInflater().inflate(R.layout.userpopup, null);
-        dialogBuilder.setView(contactPopup);
-        dialog = dialogBuilder.create();
-        dialog.show();
     }
 
 

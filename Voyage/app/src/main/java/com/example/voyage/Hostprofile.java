@@ -23,14 +23,17 @@ import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
 
-public class hostprofile extends AppCompatActivity {
+public class Hostprofile extends AppCompatActivity implements View.OnClickListener {
 TextView HFName3tv,HLName3tv,HPhone3tv,HEmail3tv;
-ImageView HImageiv;
+ImageButton HImageiv;
 Button HSave,HCancel,imagebtn;
 DataBase db;
 Hosts h;
 Bitmap selectedImage;
 String str;
+String email;
+Bitmap newimage;
+
 
 
     @Override
@@ -41,22 +44,27 @@ String str;
         HLName3tv = findViewById(R.id.tv3HLName);
         HPhone3tv = findViewById(R.id.tv3HPhone);
         HEmail3tv = findViewById(R.id.tv3HEmail);
-        HImageiv = (ImageView)findViewById(R.id.ibHost);
+        HImageiv = findViewById(R.id.ibHost);
         HSave = findViewById(R.id.btn3HSave);
-        HCancel = findViewById(R.id.btn3HCancel);
-        imagebtn = (Button)findViewById(R.id.btnImg);
+        HCancel = findViewById(R.id.btnCancel3);
+        //imagebtn = (Button)findViewById(R.id.btnImg);
         db = new DataBase(this);
-        h = db.getHost(HEmail3tv.getText().toString());
-
-
-        imagebtn.setOnClickListener(new View.OnClickListener() {
+        Intent i = getIntent();
+        email = i.getStringExtra("email");
+        h = db.getHost(email);
+        HFName3tv.setText(h.getFirstname());
+        HLName3tv.setText(h.getLastname());
+        HEmail3tv.setText(h.getEmail());
+        HPhone3tv.setText(h.getPhone());
+        HImageiv.setImageBitmap(convertToBitmap(h.getImage()));
+        HImageiv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent takeImg = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(takeImg,0);
+                imageSelect();
             }
         });
-        HSave.setOnClickListener((new View.OnClickListener() {
+
+        HSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 h.setFirstname(HFName3tv.getText().toString());
@@ -65,25 +73,18 @@ String str;
                 h.setPhone(HPhone3tv.getText().toString());
                 h.setImage(str);
                 db.editHost(h);
-                Toast.makeText(hostprofile.this,"Successful",Toast.LENGTH_SHORT).show();
-            }
-        }));
-        HCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-              //  imageSelect();
-                Intent takeImg = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(takeImg,0);
-                Log.d("...ddd...","its frr");
-
+                Toast.makeText(Hostprofile.this,"Successful",Toast.LENGTH_SHORT).show();
             }
         });
+
+
+
     }
 
-  /*  private void imageSelect(){
+    private void imageSelect(){
         final CharSequence[] choice = {"Take a Photo","Pick from Gallery","Cancel"};
         Log.d("...ddd...","its done");
-        AlertDialog.Builder b = new AlertDialog.Builder(hostprofile.this);
+        AlertDialog.Builder b = new AlertDialog.Builder(Hostprofile.this);
         b.setTitle("Add Image");
 
         b.setItems(choice, new DialogInterface.OnClickListener() {
@@ -103,34 +104,38 @@ String str;
             }
         });
         b.show();
-    }*/
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-    if(resultCode != RESULT_CANCELED) {
-        if (resultCode == RESULT_OK && data != null) {
-         //   if (requestCode == 0) {
+        if(resultCode != RESULT_CANCELED) {
+            if (resultCode == RESULT_OK && data != null) {
+                  if (requestCode == 0) {
                 selectedImage = (Bitmap) data.getExtras().get("data");
                 str = convertToBase64(selectedImage);
+                      newimage = convertToBitmap(str);
 
-         //   }
-       /*    if (requestCode == 1) {
+
+                  }
+          if (requestCode == 1) {
                 Uri selected = data.getData();
                 String[] path = {MediaStore.Images.Media.DATA};
                 Cursor c = getContentResolver().query(selected, path, null, null, null);
                 c.moveToFirst();
                 int index = c.getColumnIndex(path[0]);
-                str = c.getString(index);
-                c.close();
+                String pic = c.getString(index);
+                str = pic;
+                newimage = (BitmapFactory.decodeFile(pic));
 
+
+             // str = convertToBase64(bp);
+                c.close();
             }
 
-        */
+            }
+            HImageiv.setImageBitmap(newimage);
         }
-        Bitmap newimage = convertToBitmap(str);
-        HImageiv.setImageBitmap(newimage);
-    }
     }
 
     public String convertToBase64(Bitmap bitmap) {
@@ -147,7 +152,33 @@ String str;
     }
 
 
+    @Override
+    public void onClick(View view) {
 
-
-
+    }
 }
+
+
+
+/*    if (requestCode == 1) {
+        Uri selected = data.getData();
+        String[] path = {MediaStore.Images.Media.DATA};
+        Cursor c = getContentResolver().query(selected, path, null, null, null);
+        c.moveToFirst();
+        int index = c.getColumnIndex(path[0]);
+        str = c.getString(index);
+        c.close();
+
+        }
+
+        */
+
+/*
+h.setFirstname(HFName3tv.getText().toString());
+                h.setLastname(HLName3tv.getText().toString());
+                h.setEmail(HEmail3tv.getText().toString());
+                h.setPhone(HPhone3tv.getText().toString());
+                h.setImage(str);
+                db.editHost(h);
+                Toast.makeText(Hostprofile.this,"Successful",Toast.LENGTH_SHORT).show();
+ */

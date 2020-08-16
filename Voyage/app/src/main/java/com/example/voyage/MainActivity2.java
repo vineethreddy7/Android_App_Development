@@ -35,6 +35,7 @@ public class MainActivity2 extends AppCompatActivity {
                 else{
                     if(HPwdTv1.getText().toString().equals(h.getPassword())){
                         Intent intent = new Intent(MainActivity2.this, HostHomeScreenActivity.class);
+                        intent.putExtra("email",h.getEmail());
                         startActivity(intent);
                     }
                 }
