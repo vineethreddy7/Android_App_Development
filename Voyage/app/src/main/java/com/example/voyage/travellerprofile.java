@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -30,9 +31,10 @@ public class travellerprofile extends AppCompatActivity {
     DataBase db;
     Travellers t;
     Bitmap selectedImage;
-    String str;
+    String str = "";
     String email;
     Bitmap newimage;
+    String img;
 
 
     @Override
@@ -50,15 +52,15 @@ public class travellerprofile extends AppCompatActivity {
         Intent i = getIntent();
         email = i.getStringExtra("email");
         t = db.getTraveller(email);
-        String img = t.getImage();
+        img = t.getImage();
         FnameTtv.setText(t.getFname());
         LnameTtv.setText(t.getLname());
         PhoneTtv.setText(t.getPhone());
         EmailTtv.setText(t.getEmail());
-        byte[] decodedString = Base64.decode(img, Base64.DEFAULT);
-        Bitmap br = BitmapFactory.decodeByteArray(decodedString,0,decodedString.length);
 
-        TImgbtn.setImageBitmap(br);
+
+
+        TImgbtn.setImageBitmap(convertToBitmap(t.getImage()));
         TImgbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,7 +75,12 @@ public class travellerprofile extends AppCompatActivity {
                 t.setLname(LnameTtv.getText().toString());
                 t.setEmail(EmailTtv.getText().toString());
                 t.setPhone(PhoneTtv.getText().toString());
-                t.setImage(str);
+                if(str.equals("")) {
+                    t.setImage(t.getImage());
+                }
+                else{
+                    t.setImage(str);
+                }
                 db.editTraveller(t);
                 Toast.makeText(travellerprofile.this,"Successful",Toast.LENGTH_SHORT).show();
 

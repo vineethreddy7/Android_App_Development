@@ -15,7 +15,7 @@ import java.util.List;
 public class DataBase extends SQLiteOpenHelper {
 
 
-    private static final String DataBaseName = "DB4.db";
+    private static final String DataBaseName = "DB6.db";
 
 
 

@@ -30,7 +30,7 @@ Button HSave,HCancel,imagebtn;
 DataBase db;
 Hosts h;
 Bitmap selectedImage;
-String str;
+String str = "";
 String email;
 Bitmap newimage;
 
@@ -71,7 +71,12 @@ Bitmap newimage;
                 h.setLastname(HLName3tv.getText().toString());
                 h.setEmail(HEmail3tv.getText().toString());
                 h.setPhone(HPhone3tv.getText().toString());
-                h.setImage(str);
+                if(str.equals("")) {
+                    h.setImage(h.getImage());
+                }
+                else{
+                    h.setImage(str);
+                }
                 db.editHost(h);
                 Toast.makeText(Hostprofile.this,"Successful",Toast.LENGTH_SHORT).show();
             }
