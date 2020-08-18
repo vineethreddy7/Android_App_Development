@@ -36,13 +36,14 @@ public class DataBase extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE "+TableName+"("+HostFirstName+" TEXT,"+HostLastName+" TEXT,"+HostEmail+" TEXT PRIMARY KEY NOT NULL UNIQUE,"+HostPhone+" TEXT,"+HostPassword+" TEXT,"+HostImage+" TEXT"+")");
         db.execSQL("CREATE TABLE "+tablename+"("+travellerFname+" TEXT,"+travellerLname+" TEXT,"+travellerEmail+" TEXT PRIMARY KEY NOT NULL UNIQUE,"+travellerPhone+" TEXT,"+travellerPwd+" TEXT,"+travellerImg+" TEXT"+")");
-
+        db.execSQL("CREATE TABLE "+offertablename+"("+oid+" INTEGER PRIMARY KEY AUTOINCREMENT,"+oname+" TEXT,"+ophoto+" TEXT,"+oprice+" TEXT,"+oplace+" TEXT,"+olatitude+" TEXT,"+olongitude+" TEXT,"+odescription+" TEXT,"+orating+" TEXT,"+oreviews+" TEXT,"+otype+" TEXT,"+ohostemail+" TEXT,"+" FOREIGN KEY ("+ohostemail+") REFERENCES "+TableName+"("+HostEmail+"));");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS "+TableName);
         db.execSQL("DROP TABLE IF EXISTS "+tablename);
+        db.execSQL("DROP TABLE IF EXISTS "+offertablename);
         onCreate(db);
     }
 
@@ -137,5 +138,40 @@ public class DataBase extends SQLiteOpenHelper {
 
     }
 
+    //offerings table
+    private static final String offertablename = "offeringstable";
+    private static final String oid = "offeringsid";
+    private static final String oname = "offeringname";
+    private static final String ophoto = "offeringphoto";
+    private static final String oprice = "offeringprice";
+    private static final String oplace = "offeringplace";
+    private static final String olatitude = "latitude";
+    private static final String olongitude = "longitude";
+    private static final String orating = "offeringrating";
+    private static final String odescription = "offeringdescription";
+    private static final String ohostemail = "hostemail";
+    private static final String oreviews = "offeringreviews";
+    private static final String otype = "offeringtype";
+
+    public void addOffering(Offering o){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues c = new ContentValues();
+        c.put(oname,o.getName());
+        c.put(ophoto,o.getPhoto());
+        c.put(oprice,o.getPhoto());
+        c.put(oplace,o.getPlace());
+        c.put(olatitude,o.getLatitude());
+        c.put(olongitude,o.getLongitude());
+        c.put(orating,o.getRating());
+        c.put(odescription,o.getDescription());
+        c.put(ohostemail,o.getHostemail());
+        c.put(oreviews,o.getReview());
+        c.put(otype,o.getType());
+
+        long id = db.insert(offertablename,null,c);
+        Log.d("inserted",""+id);
+    }
+
+    
 
 }
