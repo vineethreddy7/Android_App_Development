@@ -10,12 +10,13 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DataBase extends SQLiteOpenHelper {
 
 
-    private static final String DataBaseName = "DB6.db";
+    private static final String DataBaseName = "DB7.db";
 
 
 
@@ -153,7 +154,7 @@ public class DataBase extends SQLiteOpenHelper {
     private static final String oreviews = "offeringreviews";
     private static final String otype = "offeringtype";
 
-    public void addOffering(Offering o){
+    public long addOffering(Offering o){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues c = new ContentValues();
         c.put(oname,o.getName());
@@ -170,6 +171,57 @@ public class DataBase extends SQLiteOpenHelper {
 
         long id = db.insert(offertablename,null,c);
         Log.d("inserted",""+id);
+        return id;
+    }
+
+    public List<Offering> getOfferings(String email){
+        SQLiteDatabase db = this.getWritableDatabase();
+        List<Offering> offering = new ArrayList<>();
+        String q = "SELECT * FROM "+offertablename+" WHERE "+ohostemail+"="+"\""+email+"\""+" ORDER BY "+oid+" DESC";
+        Cursor c1 = db.rawQuery(q,null);
+        if(c1.moveToFirst()){
+            do{
+                Offering of = new Offering();
+                of.setId(c1.getLong(0));
+                of.setName(c1.getString(1));
+                of.setPhoto(c1.getString(2));
+                of.setPrice(c1.getFloat(3));
+                of.setPlace(c1.getString(4));
+                of.setLatitude(c1.getDouble(5));
+                of.setLongitude(c1.getDouble(6));
+                of.setRating(c1.getDouble(7));
+                of.setDescription(c1.getString(8));
+                of.setHostemail(c1.getString(9));
+                of.setReview(c1.getString(10));
+                of.setType(c1.getString(11));
+
+                offering.add(of);
+            }while(c1.moveToNext());
+        }
+        return offering;
+    }
+
+    void delOffering(long id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(offertablename,oid+"=?",new String[]{String.valueOf(id)});
+        db.close();
+    }
+
+    public int editOffering(Offering o){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues c = new ContentValues();
+        c.put(oname,o.getName());
+        c.put(ophoto,o.getPhoto());
+        c.put(oprice,o.getPhoto());
+        c.put(oplace,o.getPlace());
+        c.put(olatitude,o.getLatitude());
+        c.put(olongitude,o.getLongitude());
+        c.put(orating,o.getRating());
+        c.put(odescription,o.getDescription());
+        c.put(ohostemail,o.getHostemail());
+        c.put(oreviews,o.getReview());
+        c.put(otype,o.getType());
+        return db.update(offertablename,c,oid+"=?",new String[]{String.valueOf(o.getId())});
     }
 
     

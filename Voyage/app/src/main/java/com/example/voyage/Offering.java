@@ -29,6 +29,22 @@ public class Offering {
         this.type = type;
     }
 
+    public Offering(String name, String photo, float price, String place, Double latitude, Double longitude, Double rating, String description, String hostemail, String review, String type) {
+        this.name = name;
+        this.photo = photo;
+        this.price = price;
+        this.place = place;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.rating = rating;
+        this.description = description;
+        this.hostemail = hostemail;
+        this.review = review;
+        this.type = type;
+    }
+
+    Offering(){}
+
     public long getId() {
         return id;
     }

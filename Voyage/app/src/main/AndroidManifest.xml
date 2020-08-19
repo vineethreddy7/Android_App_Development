@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.voyage">
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".travellerprofile"></activity>
+        <activity android:name=".Hostplacedetails"></activity>
+        <activity android:name=".travellerprofile" />
         <activity android:name=".Hostprofile" />
         <activity android:name=".Offers_Activity" />
         <activity android:name=".Available_Activity" />

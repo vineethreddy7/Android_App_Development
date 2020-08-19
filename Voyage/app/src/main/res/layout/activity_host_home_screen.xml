@@ -15,7 +15,7 @@
         tools:context=".HomeScreenActivity">
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/hostprofile"
         android:layout_width="73dp"
         android:layout_height="46dp"
         android:layout_marginTop="4dp"
@@ -65,19 +65,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/AvailableButton"
-        android:layout_width="391dp"
-        android:layout_height="118dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/yellow"
-        android:fontFamily="@font/aclonica"
-        android:text="Available"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ReservationButton" />
+        <Button
+            android:id="@+id/yourplacesBtn"
+            android:layout_width="391dp"
+            android:layout_height="118dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/yellow"
+            android:fontFamily="@font/aclonica"
+            android:text="YOUR PLACES"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ReservationButton" />
 
     <Button
         android:id="@+id/OffersButton"
@@ -91,7 +91,7 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AvailableButton" />
+        app:layout_constraintTop_toBottomOf="@+id/yourplacesBtn" />
     </androidx.constraintlayout.widget.ConstraintLayout>
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"

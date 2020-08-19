@@ -7,16 +7,39 @@
     android:background="#D3EBF6"
     tools:context=".Available_Activity">
 
-    <TextView
-        android:id="@+id/textView35"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/rock_salt"
-        android:text="Post Availiblity"
-        android:textColor="#000000"
-        android:textSize="24sp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvHostPlaces"
+        android:layout_width="383dp"
+        android:layout_height="589dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.166" />
+
+    <Button
+        android:id="@+id/btnAddplace"
+        android:layout_width="83dp"
+        android:layout_height="83dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginLeft="84dp"
+        android:layout_marginBottom="92dp"
+        android:background="@android:drawable/ic_menu_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rvHostPlaces"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/btnPlacedel"
+        android:layout_width="88dp"
+        android:layout_height="77dp"
+        android:background="@android:drawable/ic_menu_delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toEndOf="@+id/btnAddplace"
+        app:layout_constraintTop_toBottomOf="@+id/rvHostPlaces"
+        app:layout_constraintVertical_bias="0.169" />
 </androidx.constraintlayout.widget.ConstraintLayout>

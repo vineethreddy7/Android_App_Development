@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.PopupMenu;
 
@@ -28,7 +27,7 @@ public class HostHomeScreenActivity extends AppCompatActivity implements PopupMe
         email = i.getStringExtra("email");
         buttonUploadPicture = (Button) findViewById(R.id.uploadPictureButton);
         buttonReservation = (Button) findViewById(R.id.ReservationButton);
-        buttonAvailable = (Button) findViewById(R.id.AvailableButton);
+        buttonAvailable = (Button) findViewById(R.id.yourplacesBtn);
         buttonOffer = (Button) findViewById(R.id.OffersButton);
         buttonUploadPicture.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +47,7 @@ public class HostHomeScreenActivity extends AppCompatActivity implements PopupMe
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HostHomeScreenActivity.this, Available_Activity.class);
+                intent.putExtra("email",email);
                 startActivity(intent);
             }
         });
@@ -79,13 +79,7 @@ public class HostHomeScreenActivity extends AppCompatActivity implements PopupMe
         }
         return false;
     }
-    public void profileDialog(){
-        dialogBuilder = new AlertDialog.Builder(this);
-        final View contactPopup = getLayoutInflater().inflate(R.layout.activity_hostprofile, null);
-        dialogBuilder.setView(contactPopup);
-        dialog = dialogBuilder.create();
-        dialog.show();
-    }
+
 
 
 }
