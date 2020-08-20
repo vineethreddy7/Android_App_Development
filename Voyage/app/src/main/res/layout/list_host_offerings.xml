@@ -7,7 +7,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="125dp"
+        android:background="#F0F1FA">
 
         <ImageView
             android:id="@+id/ivHostplaces"
@@ -27,6 +28,8 @@
             android:layout_height="23dp"
             android:layout_marginTop="24dp"
             android:text="TextView"
+            android:textColor="#651FFF"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.378"
             app:layout_constraintStart_toEndOf="@+id/ivHostplaces"
@@ -40,6 +43,8 @@
             android:layout_marginLeft="32dp"
             android:layout_marginTop="20dp"
             android:text="TextView"
+            android:textColor="#651FFF"
+            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/ivHostplaces"
             app:layout_constraintTop_toBottomOf="@+id/tvHostplacename" />
 
@@ -51,6 +56,8 @@
             android:layout_marginLeft="40dp"
             android:layout_marginTop="20dp"
             android:text="TextView"
+            android:textColor="#651FFF"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.026"
             app:layout_constraintStart_toEndOf="@+id/tvHostplaceprice"

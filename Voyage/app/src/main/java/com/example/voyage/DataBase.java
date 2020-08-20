@@ -16,7 +16,7 @@ import java.util.List;
 public class DataBase extends SQLiteOpenHelper {
 
 
-    private static final String DataBaseName = "DB7.db";
+    private static final String DataBaseName = "DB9.db";
 
 
 
@@ -159,7 +159,7 @@ public class DataBase extends SQLiteOpenHelper {
         ContentValues c = new ContentValues();
         c.put(oname,o.getName());
         c.put(ophoto,o.getPhoto());
-        c.put(oprice,o.getPhoto());
+        c.put(oprice,o.getPrice());
         c.put(oplace,o.getPlace());
         c.put(olatitude,o.getLatitude());
         c.put(olongitude,o.getLongitude());
@@ -174,10 +174,20 @@ public class DataBase extends SQLiteOpenHelper {
         return id;
     }
 
-    public List<Offering> getOfferings(String email){
+    public Offering getO(String name){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor c = db.query(offertablename,new String[]{oid,oname,ophoto,oprice,oplace,olatitude,olongitude,orating,odescription,ohostemail,oreviews,otype},oname+"=?",new String[]{String.valueOf(name)},null,null,null,null);
+        if(c!=null){
+            c.moveToFirst();
+        }
+        Offering o = new Offering(c.getLong(0),c.getString(1),c.getString(2),c.getDouble(3),c.getString(4),c.getDouble(5),c.getDouble(6),c.getDouble(7),c.getString(8),c.getString(9),c.getString(10),c.getString(11));
+        return o;
+    }
+
+    public List<Offering> getOfferings(){
         SQLiteDatabase db = this.getWritableDatabase();
         List<Offering> offering = new ArrayList<>();
-        String q = "SELECT * FROM "+offertablename+" WHERE "+ohostemail+"="+"\""+email+"\""+" ORDER BY "+oid+" DESC";
+        String q = "SELECT * FROM "+offertablename+" ORDER BY "+oid+" DESC";
         Cursor c1 = db.rawQuery(q,null);
         if(c1.moveToFirst()){
             do{
@@ -185,7 +195,7 @@ public class DataBase extends SQLiteOpenHelper {
                 of.setId(c1.getLong(0));
                 of.setName(c1.getString(1));
                 of.setPhoto(c1.getString(2));
-                of.setPrice(c1.getFloat(3));
+                of.setPrice(c1.getDouble(3));
                 of.setPlace(c1.getString(4));
                 of.setLatitude(c1.getDouble(5));
                 of.setLongitude(c1.getDouble(6));
@@ -212,7 +222,7 @@ public class DataBase extends SQLiteOpenHelper {
         ContentValues c = new ContentValues();
         c.put(oname,o.getName());
         c.put(ophoto,o.getPhoto());
-        c.put(oprice,o.getPhoto());
+        c.put(oprice,o.getPrice());
         c.put(oplace,o.getPlace());
         c.put(olatitude,o.getLatitude());
         c.put(olongitude,o.getLongitude());

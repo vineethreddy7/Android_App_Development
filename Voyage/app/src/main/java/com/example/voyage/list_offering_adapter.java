@@ -5,11 +5,13 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,6 +22,8 @@ public class list_offering_adapter extends RecyclerView.Adapter<list_offering_ad
 
     List<Offering> offering;
     LayoutInflater inflater;
+    int flag = 2;
+    String email1;
 
     list_offering_adapter(Context context,List<Offering> offering){
         this.inflater = LayoutInflater.from(context);
@@ -40,9 +44,11 @@ public class list_offering_adapter extends RecyclerView.Adapter<list_offering_ad
         String price = String.valueOf(offering.get(i).getPrice());
         String place = offering.get(i).getPlace();
         String image = offering.get(i).getPhoto();
+       // email1 = offering.get(i).getHostemail();
         holder.Hostplacenametv.setText(name);
         holder.Hostplacepricetv.setText(price);
         holder.Hostplacetv.setText(place);
+
         byte[] decodedstring  = Base64.decode(image,Base64.DEFAULT);
         Bitmap res = BitmapFactory.decodeByteArray(decodedstring,0,decodedstring.length);
         holder.hostplacesIv.setImageBitmap(res);
@@ -64,6 +70,7 @@ public class list_offering_adapter extends RecyclerView.Adapter<list_offering_ad
             Hostplacenametv = itemView.findViewById(R.id.tvHostplacename);
             Hostplacepricetv = itemView.findViewById(R.id.tvHostplaceprice);
             Hostplacetv = itemView.findViewById(R.id.tvHostplacedate);
+           // String email1 = itemView.toString();
 
             itemView.setOnClickListener(this);
         }
@@ -71,6 +78,10 @@ public class list_offering_adapter extends RecyclerView.Adapter<list_offering_ad
         @Override
         public void onClick(View view) {
             Intent i = new Intent(view.getContext(),Hostplacedetails.class);
+           i.putExtra("flag",flag);
+           i.putExtra("name",Hostplacenametv.getText().toString());
+          //  Toast.makeText(view.getContext(),""+Hostplacenametv.getText().toString(),Toast.LENGTH_SHORT).show();
+
             view.getContext().startActivity(i);
         }
     }

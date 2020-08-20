@@ -32,10 +32,10 @@ public class Available_Activity extends AppCompatActivity {
         db = new DataBase(this);
         Intent i = getIntent();
         email = i.getStringExtra("email");
-        o = db.getOfferings(email);
+        o = db.getOfferings();
         hostplacesRV = findViewById(R.id.rvHostPlaces);
         addPlace = findViewById(R.id.btnAddplace);
-        delPlace = findViewById(R.id.btnPlacedel);
+      //  delPlace = findViewById(R.id.btnPlacedel);
 
         hostplacesRV.setLayoutManager(new LinearLayoutManager(this));
         ad = new list_offering_adapter(this,o);

@@ -30,12 +30,16 @@ public class Hostplacedetails extends AppCompatActivity implements  AdapterView.
     TextView onametv,opricetv,oplacetv,odesctv;
     Spinner osp;
     ImageButton ibO;
-    Button donebtn,cancelbtn;
+    Button donebtn,cancelbtn,delbtn;
     Bitmap selectedImage;
     String str = "";
     Bitmap newimage;
     String email;
     String type = "";
+    DataBase db;
+    Offering of;
+
+
 
     String items[] = {"Boating","Kayak","Trekking","Scuba Diving","River Raft","Surfing","Skydive","SnowBoard","Others"};
 
@@ -56,8 +60,11 @@ public class Hostplacedetails extends AppCompatActivity implements  AdapterView.
         ibO = findViewById(R.id.ivOImage);
         donebtn = findViewById(R.id.btnODone);
         cancelbtn = findViewById(R.id.btnOCancel);
+        delbtn = findViewById(R.id.delBtn);
         Intent i = getIntent();
         email = i.getStringExtra("email");
+        db = new DataBase(this);
+        of = db.getO(i.getStringExtra("name"));
         ibO.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,16 +74,57 @@ public class Hostplacedetails extends AppCompatActivity implements  AdapterView.
         Intent intent = getIntent();
         f = intent.getIntExtra("flag",0);
         Log.d("Flag",""+f);
+       if(f == 2){
+
+           Toast.makeText(this,""+i.getStringExtra("name"),Toast.LENGTH_SHORT).show();
+         //  Log.d("Email is",""+email);
+
+            Offering o = db.getO(i.getStringExtra("name"));
+            onametv.setText(o.getName());
+            opricetv.setText(o.getPrice().toString());
+            oplacetv.setText(o.getPlace());
+            odesctv.setText(o.getDescription());
+            ibO.setImageBitmap(convertToBitmap(o.getPhoto()));
+        }
         donebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Offering o = new Offering(onametv.getText().toString(),str,Float.parseFloat(opricetv.getText().toString()),oplacetv.getText().toString(),0.0,0.0,0.0,odesctv.getText().toString(),email,"",type);
+                Log.d("The value is ",""+Double.valueOf(opricetv.getText().toString()));
+
+
                 DataBase db = new DataBase(Hostplacedetails.this);
-                long id = db.addOffering(o);
-                Toast.makeText(Hostplacedetails.this,"Offering Added "+id,Toast.LENGTH_SHORT).show();
+                if(f == 1) {
+                    Offering o = new Offering(onametv.getText().toString(),str,Double.valueOf(opricetv.getText().toString()),oplacetv.getText().toString(),1.0,1.0,1.0,odesctv.getText().toString(),email,"",type);
+
+                    long id = db.addOffering(o);
+                    Toast.makeText(Hostplacedetails.this, "Offering Added " + id, Toast.LENGTH_SHORT).show();
+                }
+                else if(f == 2){
+                  of.setName(onametv.getText().toString());
+                    of.setPrice(Double.valueOf(opricetv.getText().toString()));
+                    of.setPlace(oplacetv.getText().toString());
+                    of.setDescription(odesctv.getText().toString());
+                    of.setPhoto(str);
+                    Toast.makeText(Hostplacedetails.this, "Offering Edited " + onametv.getText().toString(), Toast.LENGTH_SHORT).show();
+                    int a = db.editOffering(of);
+                  //  Toast.makeText(Hostplacedetails.this, "Offering Edited " + a, Toast.LENGTH_SHORT).show();
+                }
                 startActivity(new Intent(Hostplacedetails.this,Available_Activity.class));
             }
         });
+       cancelbtn.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               startActivity(new Intent(Hostplacedetails.this,Available_Activity.class));
+           }
+       });
+       delbtn.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               db.delOffering(of.getId());
+               startActivity(new Intent(getApplicationContext(),Available_Activity.class));
+           }
+       });
     }
 
     private void imageSelect(){
@@ -113,8 +161,6 @@ public class Hostplacedetails extends AppCompatActivity implements  AdapterView.
                     selectedImage = (Bitmap) data.getExtras().get("data");
                     str = convertToBase64(selectedImage);
                     newimage = convertToBitmap(str);
-
-
                 }
                 if (requestCode == 1) {
                     Uri selected = data.getData();
@@ -126,11 +172,8 @@ public class Hostplacedetails extends AppCompatActivity implements  AdapterView.
                     str = pic;
                     newimage = (BitmapFactory.decodeFile(pic));
 
-
-                    // str = convertToBase64(bp);
                     c.close();
                 }
-
             }
             ibO.setImageBitmap(newimage);
         }

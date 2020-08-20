@@ -4,7 +4,7 @@ public class Offering {
     private long id;
     private String name;
     private String photo;
-    private float price;
+    private Double price;
     private String place;
     private Double latitude;
     private Double longitude;
@@ -14,7 +14,7 @@ public class Offering {
     private String review;
     private String type;
 
-    public Offering(long id, String name, String photo, float price, String place, Double latitude, Double longitude, Double rating, String description, String hostemail, String review, String type) {
+    Offering(long id, String name, String photo, Double price, String place, Double latitude, Double longitude, Double rating, String description, String hostemail, String review, String type) {
         this.id = id;
         this.name = name;
         this.photo = photo;
@@ -29,7 +29,7 @@ public class Offering {
         this.type = type;
     }
 
-    public Offering(String name, String photo, float price, String place, Double latitude, Double longitude, Double rating, String description, String hostemail, String review, String type) {
+    Offering(String name, String photo, Double price, String place, Double latitude, Double longitude, Double rating, String description, String hostemail, String review, String type) {
         this.name = name;
         this.photo = photo;
         this.price = price;
@@ -69,11 +69,11 @@ public class Offering {
         this.photo = photo;
     }
 
-    public float getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

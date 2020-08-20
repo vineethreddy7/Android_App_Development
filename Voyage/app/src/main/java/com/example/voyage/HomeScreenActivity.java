@@ -32,6 +32,9 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
     list_place_adapter ad;
     List<details_place> placelist = new ArrayList<>();
     String email;
+    DataBase db;
+    List<Offering> offering;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,12 +49,16 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
-        add();
+       // add();
+        db = new DataBase(this);
+        offering = db.getOfferings();
         rv.setLayoutManager(new LinearLayoutManager(this,RecyclerView.HORIZONTAL,false));
-        ad = new list_place_adapter(this,placelist);
+        ad = new list_place_adapter(this,offering);
         rv.setAdapter(ad);
 
+
     }
+
 
     public void add(){
         placelist.add(new details_place("London","$2000","UK",R.drawable.london));
