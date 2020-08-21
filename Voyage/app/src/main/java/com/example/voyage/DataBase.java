@@ -249,7 +249,7 @@ public class DataBase extends SQLiteOpenHelper {
         c.put(imagesource,im.getImage());
 
         long i = db.insert(imagetablename,null,c);
-        Log.d("Images Added"," "+i);
+       // Log.d("Images Added"," "+i);
     }
 
     public Images getImages(String name){

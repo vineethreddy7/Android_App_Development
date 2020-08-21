@@ -68,7 +68,7 @@ public class Picture_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 DataBase db = new DataBase(Picture_Activity.this);
-                Log.d("Images are ",""+imgs.size());
+              //  Log.d("Images are ",""+imgs.size());
                 for(int j = 0;j<imgs.size();j++) {
                     Images im = new Images(uploadimagename.getText().toString(), imgs.get(j));
                     db.addImages(im);
