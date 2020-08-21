@@ -21,4 +21,6 @@
         <item>SnowBoard Rentals</item>
         <item>Bicycle Rentals</item>
     </string-array>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 </resources>

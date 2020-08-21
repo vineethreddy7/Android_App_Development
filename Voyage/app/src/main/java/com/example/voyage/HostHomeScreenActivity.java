@@ -1,10 +1,13 @@
 package com.example.voyage;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -12,10 +15,17 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.PopupMenu;
 
+import com.google.android.material.internal.NavigationMenu;
+import com.google.android.material.navigation.NavigationView;
+
 public class HostHomeScreenActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener{
-    Button buttonUploadPicture,buttonReservation,buttonAvailable,buttonOffer;
+    Button buttonUploadPicture,buttonReservation,buttonAvailable,buttonOffer,drawerbtn;
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
+    private DrawerLayout dL;
+    private ActionBarDrawerToggle toggle;
+    NavigationView nv;
+
     String email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +39,15 @@ public class HostHomeScreenActivity extends AppCompatActivity implements PopupMe
         buttonReservation = (Button) findViewById(R.id.ReservationButton);
         buttonAvailable = (Button) findViewById(R.id.yourplacesBtn);
         buttonOffer = (Button) findViewById(R.id.OffersButton);
+        drawerbtn = findViewById(R.id.btnDrawer);
+
+
+
+      //  toggle = new ActionBarDrawerToggle(this,dL,R.string.open,R.string.close);
+       // dL.addDrawerListener(toggle);
+       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       // toggle.syncState();
+
         buttonUploadPicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,12 +77,25 @@ public class HostHomeScreenActivity extends AppCompatActivity implements PopupMe
                 startActivity(intent);
             }
         });
+        drawerbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showP(view);
+            }
+        });
     }
     public void showPopupH(View v){
         PopupMenu popup = new PopupMenu(this, v);
         popup.setOnMenuItemClickListener(this);
         popup.inflate(R.menu.profile_menu);
         popup.show();
+    }
+
+    public void showP(View v){
+        PopupMenu p = new PopupMenu(this,v);
+        p.setOnMenuItemClickListener(this);
+        p.inflate(R.menu.host_drawer_menu);
+        p.show();
     }
     @Override
     public boolean onMenuItemClick(MenuItem menuItem) {

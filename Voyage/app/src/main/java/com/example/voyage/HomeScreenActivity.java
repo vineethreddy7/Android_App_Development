@@ -34,6 +34,7 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
     String email;
     DataBase db;
     List<Offering> offering;
+    Button draw;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,7 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
         Intent i = getIntent();
         email = i.getStringExtra("email");
         rv = findViewById(R.id.rVHome);
+        draw = findViewById(R.id.btntvlDrawer);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.categories,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -55,22 +57,30 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
         rv.setLayoutManager(new LinearLayoutManager(this,RecyclerView.HORIZONTAL,false));
         ad = new list_place_adapter(this,offering);
         rv.setAdapter(ad);
+        draw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showPP(view);
+            }
+        });
 
 
     }
 
 
-    public void add(){
-        placelist.add(new details_place("London","$2000","UK",R.drawable.london));
-        placelist.add(new details_place("Sydney","$3000","Australia",R.drawable.sydney));
-
-    }
 
     public void showPopup(View v){
         PopupMenu popup = new PopupMenu(this, v);
         popup.setOnMenuItemClickListener(this);
         popup.inflate(R.menu.profile_menu);
         popup.show();
+    }
+
+    public void showPP(View v){
+        PopupMenu pp = new PopupMenu(this,v);
+        pp.setOnMenuItemClickListener(this);
+        pp.inflate(R.menu.drawer_menu);
+        pp.show();
     }
     @Override
     public boolean onMenuItemClick(MenuItem menuItem) {

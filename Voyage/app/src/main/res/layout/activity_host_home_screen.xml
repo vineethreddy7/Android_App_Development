@@ -8,6 +8,16 @@
     android:background="#D3EBF6"
     android:orientation="vertical"
     tools:context=".HostHomeScreenActivity">
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/yellow"
+        app:itemTextColor="@color/black"
+        app:menu="@menu/host_drawer_menu" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -27,17 +37,20 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/btnDrawer"
         android:layout_width="30dp"
         android:layout_height="26dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
+        android:onClick="showP"
         android:background="@drawable/menuicon"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" >
 
-    <Button
+    </Button>
+
+        <Button
         android:id="@+id/ReservationButton"
         android:layout_width="391dp"
         android:layout_height="118dp"
@@ -92,12 +105,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/yourplacesBtn" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <com.google.android.material.navigation.NavigationView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="@color/yellow"
-        app:itemTextColor="@color/black"
-        app:menu="@menu/host_drawer_menu"/>
+
 </androidx.drawerlayout.widget.DrawerLayout>

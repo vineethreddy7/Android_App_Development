@@ -5,7 +5,6 @@
 
     <item android:title="Menu">
         <menu>
-
         <item android:id="@+id/visited" android:icon="@drawable/visitedpl" android:title="Places Other Visited" />
         <item android:id="@+id/services" android:icon="@drawable/services" android:title="Services near me" />
     <item android:id="@+id/adventure" android:icon="@drawable/adventures" android:title="Adventures near me"/>

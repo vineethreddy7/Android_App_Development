@@ -16,7 +16,7 @@ import java.util.List;
 public class DataBase extends SQLiteOpenHelper {
 
 
-    private static final String DataBaseName = "DB9.db";
+    private static final String DataBaseName = "DB10.db";
 
 
 
@@ -38,6 +38,7 @@ public class DataBase extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE "+TableName+"("+HostFirstName+" TEXT,"+HostLastName+" TEXT,"+HostEmail+" TEXT PRIMARY KEY NOT NULL UNIQUE,"+HostPhone+" TEXT,"+HostPassword+" TEXT,"+HostImage+" TEXT"+")");
         db.execSQL("CREATE TABLE "+tablename+"("+travellerFname+" TEXT,"+travellerLname+" TEXT,"+travellerEmail+" TEXT PRIMARY KEY NOT NULL UNIQUE,"+travellerPhone+" TEXT,"+travellerPwd+" TEXT,"+travellerImg+" TEXT"+")");
         db.execSQL("CREATE TABLE "+offertablename+"("+oid+" INTEGER PRIMARY KEY AUTOINCREMENT,"+oname+" TEXT,"+ophoto+" TEXT,"+oprice+" TEXT,"+oplace+" TEXT,"+olatitude+" TEXT,"+olongitude+" TEXT,"+odescription+" TEXT,"+orating+" TEXT,"+oreviews+" TEXT,"+otype+" TEXT,"+ohostemail+" TEXT,"+" FOREIGN KEY ("+ohostemail+") REFERENCES "+TableName+"("+HostEmail+"));");
+        db.execSQL("CREATE TABLE "+imagetablename+"("+imagename+" TEXT,"+imagesource+" TEXT"+")");
     }
 
     @Override
@@ -45,6 +46,7 @@ public class DataBase extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS "+TableName);
         db.execSQL("DROP TABLE IF EXISTS "+tablename);
         db.execSQL("DROP TABLE IF EXISTS "+offertablename);
+        db.execSQL("DROP TABLE IF EXISTS "+imagetablename);
         onCreate(db);
     }
 
@@ -232,6 +234,32 @@ public class DataBase extends SQLiteOpenHelper {
         c.put(oreviews,o.getReview());
         c.put(otype,o.getType());
         return db.update(offertablename,c,oid+"=?",new String[]{String.valueOf(o.getId())});
+    }
+
+
+    //Image data
+    private static final String imagetablename = "Imagedata";
+    private static final String imagename = "imagename";
+    private static final String imagesource = "imagesource";
+
+    public void addImages(Images im){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues c = new ContentValues();
+        c.put(imagename,im.getName());
+        c.put(imagesource,im.getImage());
+
+        long i = db.insert(imagetablename,null,c);
+        Log.d("Images Added"," "+i);
+    }
+
+    public Images getImages(String name){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor c = db.query(imagetablename,new String[]{imagename,imagesource},imagename+"=?",new String[]{String.valueOf(name)},null,null,null,null);
+        if(c!=null){
+            c.moveToFirst();
+        }
+        Images img = new Images(c.getString(0),c.getString(1));
+        return img;
     }
 
     

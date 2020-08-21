@@ -22,11 +22,11 @@
             android:background="#DCD1D1"
             app:layout_constraintEnd_toStartOf="@+id/button5"
             app:layout_constraintHorizontal_bias="0.562"
-            app:layout_constraintStart_toEndOf="@+id/button"
+            app:layout_constraintStart_toEndOf="@+id/btntvlDrawer"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btntvlDrawer"
             android:layout_width="29dp"
             android:layout_height="33dp"
             android:layout_marginStart="8dp"
