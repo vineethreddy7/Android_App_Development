@@ -14,7 +14,11 @@ public class Offering {
     private String review;
     private String type;
 
-    Offering(long id, String name, String photo, Double price, String place, Double latitude, Double longitude, Double rating, String description, String hostemail, String review, String type) {
+
+
+    private String offer;
+
+    Offering(long id, String name, String photo, Double price, String place, Double latitude, Double longitude, Double rating, String description, String hostemail, String review, String type,String offer) {
         this.id = id;
         this.name = name;
         this.photo = photo;
@@ -27,9 +31,10 @@ public class Offering {
         this.hostemail = hostemail;
         this.review = review;
         this.type = type;
+        this.offer = offer;
     }
 
-    Offering(String name, String photo, Double price, String place, Double latitude, Double longitude, Double rating, String description, String hostemail, String review, String type) {
+    Offering(String name, String photo, Double price, String place, Double latitude, Double longitude, Double rating, String description, String hostemail, String review, String type,String offer) {
         this.name = name;
         this.photo = photo;
         this.price = price;
@@ -41,6 +46,7 @@ public class Offering {
         this.hostemail = hostemail;
         this.review = review;
         this.type = type;
+        this.offer = offer;
     }
 
     Offering(){}
@@ -139,5 +145,13 @@ public class Offering {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getOffer() {
+        return offer;
+    }
+
+    public void setOffer(String offer) {
+        this.offer = offer;
     }
 }

@@ -16,7 +16,7 @@ import java.util.List;
 public class DataBase extends SQLiteOpenHelper {
 
 
-    private static final String DataBaseName = "DB10.db";
+    private static final String DataBaseName = "DB13.db";
 
 
 
@@ -37,7 +37,7 @@ public class DataBase extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE "+TableName+"("+HostFirstName+" TEXT,"+HostLastName+" TEXT,"+HostEmail+" TEXT PRIMARY KEY NOT NULL UNIQUE,"+HostPhone+" TEXT,"+HostPassword+" TEXT,"+HostImage+" TEXT"+")");
         db.execSQL("CREATE TABLE "+tablename+"("+travellerFname+" TEXT,"+travellerLname+" TEXT,"+travellerEmail+" TEXT PRIMARY KEY NOT NULL UNIQUE,"+travellerPhone+" TEXT,"+travellerPwd+" TEXT,"+travellerImg+" TEXT"+")");
-        db.execSQL("CREATE TABLE "+offertablename+"("+oid+" INTEGER PRIMARY KEY AUTOINCREMENT,"+oname+" TEXT,"+ophoto+" TEXT,"+oprice+" TEXT,"+oplace+" TEXT,"+olatitude+" TEXT,"+olongitude+" TEXT,"+odescription+" TEXT,"+orating+" TEXT,"+oreviews+" TEXT,"+otype+" TEXT,"+ohostemail+" TEXT,"+" FOREIGN KEY ("+ohostemail+") REFERENCES "+TableName+"("+HostEmail+"));");
+        db.execSQL("CREATE TABLE "+offertablename+"("+oid+" INTEGER PRIMARY KEY AUTOINCREMENT,"+oname+" TEXT,"+ophoto+" TEXT,"+oprice+" TEXT,"+oplace+" TEXT,"+olatitude+" TEXT,"+olongitude+" TEXT,"+odescription+" TEXT,"+orating+" TEXT,"+oreviews+" TEXT,"+otype+" TEXT,"+ooffer+" TEXT,"+ohostemail+" TEXT,"+" FOREIGN KEY ("+ohostemail+") REFERENCES "+TableName+"("+HostEmail+"));");
         db.execSQL("CREATE TABLE "+imagetablename+"("+imagename+" TEXT,"+imagesource+" TEXT"+")");
     }
 
@@ -155,6 +155,7 @@ public class DataBase extends SQLiteOpenHelper {
     private static final String ohostemail = "hostemail";
     private static final String oreviews = "offeringreviews";
     private static final String otype = "offeringtype";
+    private static final String ooffer = "offeringoffer";
 
     public long addOffering(Offering o){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -170,6 +171,7 @@ public class DataBase extends SQLiteOpenHelper {
         c.put(ohostemail,o.getHostemail());
         c.put(oreviews,o.getReview());
         c.put(otype,o.getType());
+        c.put(ooffer,o.getOffer());
 
         long id = db.insert(offertablename,null,c);
         Log.d("inserted",""+id);
@@ -178,11 +180,11 @@ public class DataBase extends SQLiteOpenHelper {
 
     public Offering getO(String name){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor c = db.query(offertablename,new String[]{oid,oname,ophoto,oprice,oplace,olatitude,olongitude,orating,odescription,ohostemail,oreviews,otype},oname+"=?",new String[]{String.valueOf(name)},null,null,null,null);
+        Cursor c = db.query(offertablename,new String[]{oid,oname,ophoto,oprice,oplace,olatitude,olongitude,orating,odescription,ohostemail,oreviews,otype,ooffer},oname+"=?",new String[]{String.valueOf(name)},null,null,null,null);
         if(c!=null){
             c.moveToFirst();
         }
-        Offering o = new Offering(c.getLong(0),c.getString(1),c.getString(2),c.getDouble(3),c.getString(4),c.getDouble(5),c.getDouble(6),c.getDouble(7),c.getString(8),c.getString(9),c.getString(10),c.getString(11));
+        Offering o = new Offering(c.getLong(0),c.getString(1),c.getString(2),c.getDouble(3),c.getString(4),c.getDouble(5),c.getDouble(6),c.getDouble(7),c.getString(8),c.getString(9),c.getString(10),c.getString(11),c.getString(12));
         return o;
     }
 
@@ -206,7 +208,7 @@ public class DataBase extends SQLiteOpenHelper {
                 of.setHostemail(c1.getString(9));
                 of.setReview(c1.getString(10));
                 of.setType(c1.getString(11));
-
+                of.setOffer(c1.getString(12));
                 offering.add(of);
             }while(c1.moveToNext());
         }
@@ -233,6 +235,7 @@ public class DataBase extends SQLiteOpenHelper {
         c.put(ohostemail,o.getHostemail());
         c.put(oreviews,o.getReview());
         c.put(otype,o.getType());
+        c.put(ooffer,o.getOffer());
         return db.update(offertablename,c,oid+"=?",new String[]{String.valueOf(o.getId())});
     }
 

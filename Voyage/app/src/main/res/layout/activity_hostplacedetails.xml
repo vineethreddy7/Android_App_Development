@@ -8,8 +8,8 @@
 
     <EditText
         android:id="@+id/tvODesc"
-        android:layout_width="219dp"
-        android:layout_height="153dp"
+        android:layout_width="210dp"
+        android:layout_height="105dp"
         android:layout_marginTop="32dp"
         android:gravity="top"
         android:textSize="18sp"
@@ -137,13 +137,12 @@
 
     <ImageButton
         android:id="@+id/ivOImage"
-        android:layout_width="206dp"
-        android:layout_height="140dp"
+        android:layout_width="173dp"
+        android:layout_height="86dp"
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvODesc"
+        app:layout_constraintTop_toBottomOf="@+id/cb"
         app:srcCompat="@drawable/camp" />
 
     <Button
@@ -187,4 +186,29 @@
         app:layout_constraintStart_toEndOf="@+id/btnOCancel"
         app:layout_constraintTop_toBottomOf="@+id/ivOImage"
         app:layout_constraintVertical_bias="0.212" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginLeft="68dp"
+        android:layout_marginTop="92dp"
+        android:text="Offers:"
+        android:textColor="#3D5AFE"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView38" />
+
+    <CheckBox
+        android:id="@+id/cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:checked="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.123"
+        app:layout_constraintStart_toEndOf="@+id/textView31"
+        app:layout_constraintTop_toBottomOf="@+id/tvODesc" />
 </androidx.constraintlayout.widget.ConstraintLayout>

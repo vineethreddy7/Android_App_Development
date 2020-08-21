@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -38,6 +39,9 @@ public class Hostplacedetails extends AppCompatActivity implements  AdapterView.
     String type = "";
     DataBase db;
     Offering of;
+    CheckBox c;
+    String offer;
+    String name;
 
 
 
@@ -52,6 +56,7 @@ public class Hostplacedetails extends AppCompatActivity implements  AdapterView.
         oplacetv = findViewById(R.id.tvOPlace);
         odesctv = findViewById(R.id.tvODesc);
         osp = findViewById(R.id.spOType);
+        c = (CheckBox) findViewById(R.id.cb);
 
         ArrayAdapter aa = new ArrayAdapter(this,R.layout.support_simple_spinner_dropdown_item,items);
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -62,15 +67,22 @@ public class Hostplacedetails extends AppCompatActivity implements  AdapterView.
         cancelbtn = findViewById(R.id.btnOCancel);
         delbtn = findViewById(R.id.delBtn);
         Intent i = getIntent();
+
         email = i.getStringExtra("email");
+        name = i.getStringExtra("name");
         db = new DataBase(this);
-        of = db.getO(i.getStringExtra("name"));
         ibO.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 imageSelect();
             }
         });
+        if(!c.isChecked()){
+            offer = "no";
+        }
+        else{
+            offer = "yes";
+        }
         Intent intent = getIntent();
         f = intent.getIntExtra("flag",0);
         Log.d("Flag",""+f);
@@ -84,7 +96,12 @@ public class Hostplacedetails extends AppCompatActivity implements  AdapterView.
             opricetv.setText(o.getPrice().toString());
             oplacetv.setText(o.getPlace());
             odesctv.setText(o.getDescription());
+            str = o.getPhoto();
             ibO.setImageBitmap(convertToBitmap(o.getPhoto()));
+            Log.d("Offer is ",""+o.getOffer());
+            if(o.getOffer().equals("yes")){
+                c.setChecked(true);
+            }
         }
         donebtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,13 +111,14 @@ public class Hostplacedetails extends AppCompatActivity implements  AdapterView.
 
                 DataBase db = new DataBase(Hostplacedetails.this);
                 if(f == 1) {
-                    Offering o = new Offering(onametv.getText().toString(),str,Double.valueOf(opricetv.getText().toString()),oplacetv.getText().toString(),1.0,1.0,1.0,odesctv.getText().toString(),email,"",type);
+                    Offering o = new Offering(onametv.getText().toString(),str,Double.valueOf(opricetv.getText().toString()),oplacetv.getText().toString(),1.0,1.0,1.0,odesctv.getText().toString(),email,"",type,offer);
 
                     long id = db.addOffering(o);
                     Toast.makeText(Hostplacedetails.this, "Offering Added " + id, Toast.LENGTH_SHORT).show();
                 }
                 else if(f == 2){
-                  of.setName(onametv.getText().toString());
+                    of = db.getO(name);
+                    of.setName(onametv.getText().toString());
                     of.setPrice(Double.valueOf(opricetv.getText().toString()));
                     of.setPlace(oplacetv.getText().toString());
                     of.setDescription(odesctv.getText().toString());
