@@ -94,6 +94,8 @@ public class Picture_Activity extends AppCompatActivity {
                         InputStream is = getContentResolver().openInputStream(imgu);
                         bp = BitmapFactory.decodeStream(is);
                         bm.add(bp);
+                        imgs.add(convertToBase64(bp));
+
                     }catch(FileNotFoundException e){
                         e.printStackTrace();
                     }
@@ -118,12 +120,11 @@ public class Picture_Activity extends AppCompatActivity {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                imgs.add(convertToBase64(b));
                                 pickIV.setImageBitmap(b);
                             }
                         });
                         try{
-                            Thread.sleep(1000);
+                            Thread.sleep(2000);
                         }catch(InterruptedException e){
                             e.printStackTrace();
                         }
