@@ -3,9 +3,14 @@ package com.example.voyage;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
+import android.content.ClipData;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -20,13 +25,19 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Hostplacedetails extends AppCompatActivity implements  AdapterView.OnItemSelectedListener {
+public class Hostplacedetails extends AppCompatActivity implements AdapterView.OnItemSelectedListener, RadioGroup.OnCheckedChangeListener {
     int f;
     TextView onametv,opricetv,oplacetv,odesctv;
     Spinner osp;
@@ -39,13 +50,20 @@ public class Hostplacedetails extends AppCompatActivity implements  AdapterView.
     String type = "";
     DataBase db;
     Offering of;
-    CheckBox c;
+   // CheckBox c;
     String offer;
     String name;
+    RadioGroup rg;
+    RadioButton ybtn,nbtn;
+    Long id11;
+    final List<Bitmap> bm = new ArrayList<>();
+    Bitmap bp;
+    String values[];
+
+    Resources r;
 
 
-
-    String items[] = {"Boating","Kayak","Trekking","Scuba Diving","River Raft","Surfing","Skydive","SnowBoard","Others"};
+    String items[] = {"","Water Activities","Mountain Activities","Hotels","Restaurants","Cottages","Monument Visits","Snow Activities","Others"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +74,12 @@ public class Hostplacedetails extends AppCompatActivity implements  AdapterView.
         oplacetv = findViewById(R.id.tvOPlace);
         odesctv = findViewById(R.id.tvODesc);
         osp = findViewById(R.id.spOType);
-        c = (CheckBox) findViewById(R.id.cb);
-
+        rg = findViewById(R.id.rG);
+        ybtn = findViewById(R.id.btnYes);
+        nbtn = findViewById(R.id.btnNo);
+        Resources r = getResources();
+        values = r.getStringArray(R.array.categories);
+      // ArrayAdapter<CharSequence> aa = ArrayAdapter.createFromResource(this, R.array.categories,android.R.layout.simple_spinner_item);
         ArrayAdapter aa = new ArrayAdapter(this,R.layout.support_simple_spinner_dropdown_item,items);
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         osp.setAdapter(aa);
@@ -77,12 +99,7 @@ public class Hostplacedetails extends AppCompatActivity implements  AdapterView.
                 imageSelect();
             }
         });
-        if(!c.isChecked()){
-            offer = "no";
-        }
-        else{
-            offer = "yes";
-        }
+        rg.setOnCheckedChangeListener(this);
         Intent intent = getIntent();
         f = intent.getIntExtra("flag",0);
         Log.d("Flag",""+f);
@@ -99,8 +116,13 @@ public class Hostplacedetails extends AppCompatActivity implements  AdapterView.
             str = o.getPhoto();
             ibO.setImageBitmap(convertToBitmap(o.getPhoto()));
             Log.d("Offer is ",""+o.getOffer());
-            if(o.getOffer().equals("yes")){
-                c.setChecked(true);
+            if(o.getOffer().equals("Yes")){
+               ybtn.setChecked(true);
+               nbtn.setChecked(false);
+            }
+            else if(o.getOffer().equals("No")){
+                nbtn.setChecked(true);
+                ybtn.setChecked(false);
             }
         }
         donebtn.setOnClickListener(new View.OnClickListener() {
@@ -118,11 +140,14 @@ public class Hostplacedetails extends AppCompatActivity implements  AdapterView.
                 }
                 else if(f == 2){
                     of = db.getO(name);
+                   // id11 = of.getId();
+                    Log.d("Id is",""+id11);
                     of.setName(onametv.getText().toString());
                     of.setPrice(Double.valueOf(opricetv.getText().toString()));
                     of.setPlace(oplacetv.getText().toString());
                     of.setDescription(odesctv.getText().toString());
                     of.setPhoto(str);
+                    of.setOffer(offer);
                     Toast.makeText(Hostplacedetails.this, "Offering Edited " + onametv.getText().toString(), Toast.LENGTH_SHORT).show();
                     int a = db.editOffering(of);
                   //  Toast.makeText(Hostplacedetails.this, "Offering Edited " + a, Toast.LENGTH_SHORT).show();
@@ -139,7 +164,8 @@ public class Hostplacedetails extends AppCompatActivity implements  AdapterView.
        delbtn.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               db.delOffering(of.getId());
+               id11 = db.getO(name).getId();
+               db.delOffering(id11);
                startActivity(new Intent(getApplicationContext(),Available_Activity.class));
            }
        });
@@ -159,8 +185,14 @@ public class Hostplacedetails extends AppCompatActivity implements  AdapterView.
                     startActivityForResult(intent,0);
                 }
                 else if(choice[i].equals("Pick from Gallery")){
-                    Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                    startActivityForResult(intent,1);
+                    if(ActivityCompat.checkSelfPermission(Hostplacedetails.this, Manifest.permission.READ_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED){
+                        ActivityCompat.requestPermissions(Hostplacedetails.this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},100);
+                        return;
+                    }
+                    Intent intt = new Intent(Intent.ACTION_GET_CONTENT);
+                  //  intt.putExtra(Intent.EXTRA_ALLOW_MULTIPLE,true);
+                    intt.setType("image/*");
+                    startActivityForResult(intt,1);
                 }
                 else if(choice[i].equals("Cancel")){
                     dialogInterface.dismiss();
@@ -179,18 +211,36 @@ public class Hostplacedetails extends AppCompatActivity implements  AdapterView.
                     selectedImage = (Bitmap) data.getExtras().get("data");
                     str = convertToBase64(selectedImage);
                     newimage = convertToBitmap(str);
-                }
-                if (requestCode == 1) {
-                    Uri selected = data.getData();
-                    String[] path = {MediaStore.Images.Media.DATA};
-                    Cursor c = getContentResolver().query(selected, path, null, null, null);
-                    c.moveToFirst();
-                    int index = c.getColumnIndex(path[0]);
-                    String pic = c.getString(index);
-                    str = pic;
-                    newimage = (BitmapFactory.decodeFile(pic));
 
-                    c.close();
+                }
+                else if (requestCode == 1) {
+                    ClipData cd = data.getClipData();
+
+                    if(cd != null){
+                        for(int i = 0; i<cd.getItemCount();i++){
+                            Uri imgu = cd.getItemAt(i).getUri();
+                            try{
+                                InputStream is = getContentResolver().openInputStream(imgu);
+                                bp = BitmapFactory.decodeStream(is);
+                                bm.add(bp);
+
+                            }catch(FileNotFoundException e){
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                    else{
+                        Uri u = data.getData();
+                        try{
+                            InputStream is = getContentResolver().openInputStream(u);
+                            bp = BitmapFactory.decodeStream(is);
+                            bm.add(bp);
+                        }catch(FileNotFoundException e){
+                            e.printStackTrace();
+                        }
+                    }
+                    str = convertToBase64(bm.get(0));
+                    newimage = bm.get(0);
                 }
             }
             ibO.setImageBitmap(newimage);
@@ -201,7 +251,7 @@ public class Hostplacedetails extends AppCompatActivity implements  AdapterView.
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG,100,os);
         byte[] byteArray = os.toByteArray();
-        return Base64.encodeToString(byteArray, 0);
+        return Base64.encodeToString(byteArray, Base64.DEFAULT);
     }
 
     public Bitmap convertToBitmap(String base64String) {
@@ -214,10 +264,18 @@ public class Hostplacedetails extends AppCompatActivity implements  AdapterView.
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         type = items[i];
+        Log.d("Values are",""+type);
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
+    }
+
+    @Override
+    public void onCheckedChanged(RadioGroup r, int i) {
+        int id = r.getCheckedRadioButtonId();
+        RadioButton rb = (RadioButton)findViewById(id);
+        offer = rb.getText().toString();
     }
 }

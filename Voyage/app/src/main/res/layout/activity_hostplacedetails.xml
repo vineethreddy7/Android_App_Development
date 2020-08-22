@@ -139,10 +139,10 @@
         android:id="@+id/ivOImage"
         android:layout_width="173dp"
         android:layout_height="86dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cb"
+        app:layout_constraintTop_toBottomOf="@+id/rG"
         app:srcCompat="@drawable/camp" />
 
     <Button
@@ -201,14 +201,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView38" />
 
-    <CheckBox
-        android:id="@+id/cb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:checked="false"
+    <RadioGroup
+        android:id="@+id/rG"
+        android:layout_width="173dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.123"
         app:layout_constraintStart_toEndOf="@+id/textView31"
-        app:layout_constraintTop_toBottomOf="@+id/tvODesc" />
+        app:layout_constraintTop_toBottomOf="@+id/tvODesc">
+
+        <RadioButton
+            android:id="@+id/btnYes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Yes" />
+
+        <RadioButton
+            android:id="@+id/btnNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No" />
+    </RadioGroup>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,7 +15,7 @@
         tools:context=".HomeScreenActivity">
 
         <SearchView
-            android:id="@+id/searchView2"
+            android:id="@+id/searchbar"
             android:layout_width="307dp"
             android:layout_height="33dp"
             android:layout_marginTop="20dp"
@@ -58,18 +58,7 @@
             android:fontFamily="@font/chewy"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/searchView2" />
-
-        <Button
-            android:id="@+id/button8"
-            android:layout_width="69dp"
-            android:layout_height="65dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/addopt"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/searchbar" />
 
         <TextView
             android:id="@+id/textView20"
@@ -85,12 +74,39 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rVHome"
-            android:layout_width="397dp"
-            android:layout_height="265dp"
+            android:layout_width="400dp"
+            android:layout_height="248dp"
             android:layout_marginTop="32dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvOffers"
+            android:layout_width="398dp"
+            android:layout_height="203dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="70dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.42"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+        <TextView
+            android:id="@+id/textView30"
+            android:layout_width="87dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Offers"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rVHome" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

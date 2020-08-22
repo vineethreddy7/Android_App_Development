@@ -6,11 +6,9 @@
 
         <item android:title="Menu">
                 <menu>
-        <item android:id="@+id/calculator" android:icon="@drawable/math" android:title="Calculator" />
+
         <item android:id="@+id/weather" android:icon="@drawable/weather" android:title="Weather"/>
-        <item android:id="@+id/list" android:icon="@drawable/list" android:title="List"/>
         <item android:id="@+id/translator" android:icon="@drawable/translator" android:title="Translator"/>
-        <item android:id="@+id/calender" android:icon="@drawable/calendar" android:title="Calender"/>
         <item android:id="@+id/share" android:icon="@drawable/sharewithfriends" android:title="Share the App"/>
         <item android:id="@+id/Rate" android:icon="@drawable/rate" android:title="Rate the App"/>
         <item android:id="@+id/help" android:icon="@drawable/help" android:title="Help"/>

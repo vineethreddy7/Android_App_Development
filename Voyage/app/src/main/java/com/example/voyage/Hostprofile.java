@@ -3,9 +3,13 @@ package com.example.voyage;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
+import android.content.ClipData;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -22,6 +26,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Hostprofile extends AppCompatActivity implements View.OnClickListener {
 TextView HFName3tv,HLName3tv,HPhone3tv,HEmail3tv;
@@ -33,6 +41,8 @@ Bitmap selectedImage;
 String str = "";
 String email;
 Bitmap newimage;
+    final List<Bitmap> bm = new ArrayList<>();
+    Bitmap bp;
 
 
 
@@ -100,8 +110,14 @@ Bitmap newimage;
                     startActivityForResult(intent,0);
                 }
                 else if(choice[i].equals("Pick from Gallery")){
-                    Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                    startActivityForResult(intent,1);
+                    if(ActivityCompat.checkSelfPermission(Hostprofile.this, Manifest.permission.READ_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED){
+                        ActivityCompat.requestPermissions(Hostprofile.this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},100);
+                        return;
+                    }
+                    Intent intt = new Intent(Intent.ACTION_GET_CONTENT);
+                    //  intt.putExtra(Intent.EXTRA_ALLOW_MULTIPLE,true);
+                    intt.setType("image/*");
+                    startActivityForResult(intt,1);
                 }
                 else if(choice[i].equals("Cancel")){
                     dialogInterface.dismiss();
@@ -124,18 +140,33 @@ Bitmap newimage;
 
                   }
           if (requestCode == 1) {
-                Uri selected = data.getData();
-                String[] path = {MediaStore.Images.Media.DATA};
-                Cursor c = getContentResolver().query(selected, path, null, null, null);
-                c.moveToFirst();
-                int index = c.getColumnIndex(path[0]);
-                String pic = c.getString(index);
-                str = pic;
-                newimage = (BitmapFactory.decodeFile(pic));
+              ClipData cd = data.getClipData();
 
+              if(cd != null){
+                  for(int i = 0; i<cd.getItemCount();i++){
+                      Uri imgu = cd.getItemAt(i).getUri();
+                      try{
+                          InputStream is = getContentResolver().openInputStream(imgu);
+                          bp = BitmapFactory.decodeStream(is);
+                          bm.add(bp);
 
-             // str = convertToBase64(bp);
-                c.close();
+                      }catch(FileNotFoundException e){
+                          e.printStackTrace();
+                      }
+                  }
+              }
+              else{
+                  Uri u = data.getData();
+                  try{
+                      InputStream is = getContentResolver().openInputStream(u);
+                      bp = BitmapFactory.decodeStream(is);
+                      bm.add(bp);
+                  }catch(FileNotFoundException e){
+                      e.printStackTrace();
+                  }
+              }
+              str = convertToBase64(bm.get(0));
+              newimage = bm.get(0);
             }
 
             }
@@ -147,7 +178,7 @@ Bitmap newimage;
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG,100,os);
         byte[] byteArray = os.toByteArray();
-        return Base64.encodeToString(byteArray, 0);
+        return Base64.encodeToString(byteArray, Base64.DEFAULT);
     }
 
     public Bitmap convertToBitmap(String base64String) {
