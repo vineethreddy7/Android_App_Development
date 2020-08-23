@@ -1,9 +1,11 @@
 package com.example.voyage;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,7 @@ import java.util.List;
 public class list_place_adapter extends RecyclerView.Adapter<list_place_adapter.ViewHolder> {
     List<Offering> placedata;
     LayoutInflater inflater;
+    String name = "";
 
     list_place_adapter(Context c,List<Offering> placedata){
         this.inflater = LayoutInflater.from(c);
@@ -67,6 +70,10 @@ public class list_place_adapter extends RecyclerView.Adapter<list_place_adapter.
 
         @Override
         public void onClick(View view) {
+            Intent i = new Intent(view.getContext(),bookingpage.class);
+            i.putExtra("name",tvPName.getText().toString());
+            Log.d("Name1 is ",""+tvPName.getText().toString());
+            view.getContext().startActivity(i);
 
         }
     }

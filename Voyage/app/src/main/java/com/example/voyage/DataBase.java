@@ -16,7 +16,7 @@ import java.util.List;
 public class DataBase extends SQLiteOpenHelper {
 
 
-    private static final String DataBaseName = "DB16.db";
+    private static final String DataBaseName = "DB17.db";
 
 
 
@@ -38,6 +38,7 @@ public class DataBase extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE "+TableName+"("+HostFirstName+" TEXT,"+HostLastName+" TEXT,"+HostEmail+" TEXT PRIMARY KEY NOT NULL UNIQUE,"+HostPhone+" TEXT,"+HostPassword+" TEXT,"+HostImage+" TEXT"+")");
         db.execSQL("CREATE TABLE "+tablename+"("+travellerFname+" TEXT,"+travellerLname+" TEXT,"+travellerEmail+" TEXT PRIMARY KEY NOT NULL UNIQUE,"+travellerPhone+" TEXT,"+travellerPwd+" TEXT,"+travellerImg+" TEXT"+")");
         db.execSQL("CREATE TABLE "+offertablename+"("+oid+" INTEGER PRIMARY KEY AUTOINCREMENT,"+oname+" TEXT,"+ophoto+" TEXT,"+oprice+" TEXT,"+oplace+" TEXT,"+olatitude+" TEXT,"+olongitude+" TEXT,"+orating+" TEXT,"+odescription+" TEXT,"+ohostemail+" TEXT,"+oreviews+" TEXT,"+otype+" TEXT,"+ooffer+" TEXT,"+" FOREIGN KEY ("+ohostemail+") REFERENCES "+TableName+"("+HostEmail+"));");
+        db.execSQL("CREATE TABLE "+bookingtablename+"("+bookingid+" INTEGER PRIMARY KEY AUTOINCREMENT,"+bookingdate+" TEXT,"+boid+" INTEGER,"+hemail+" TEXT,"+temail+" TEXT,"+" FOREIGN KEY ("+boid+") REFERENCES "+offertablename+"("+oid+"),"+ "FOREIGN KEY ("+hemail+") REFERENCES "+TableName+"("+HostEmail+"),"+ "FOREIGN KEY ("+temail+") REFERENCES "+tablename+"("+travellerEmail+"));");
         db.execSQL("CREATE TABLE "+imagetablename+"("+imagename+" TEXT,"+imagesource+" TEXT"+")");
     }
 
@@ -264,6 +265,41 @@ public class DataBase extends SQLiteOpenHelper {
         Images img = new Images(c.getString(0),c.getString(1));
         return img;
     }
+
+    //booking data
+    private static final String bookingtablename = "Bookingdata";
+    private static final String bookingid = "bid";
+    private static final String bookingdate = "bdate";
+    private static final String boid = "boid";
+    private static final String hemail = "hemail";
+    private static final String temail = "temail";
+
+    public long addBooing(Booking b){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues c = new ContentValues();
+        c.put(bookingdate,b.getDate());
+        c.put(boid,b.getOfferingid());
+        c.put(hemail,b.getHostemail());
+        c.put(temail,b.getTravelleremail());
+
+        long id = db.insert(bookingtablename,null,c);
+        Log.d("Inserted",""+id);
+        return id;
+    }
+
+    public Booking getBooking(long id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor c = db.query(bookingtablename,new String[]{bookingid,bookingdate,boid,hemail,temail},bookingid+"=?",new String[]{String.valueOf(bookingid)},null,null,null,null);
+        if(c!=null){
+            c.moveToFirst();
+        }
+        Booking b = new Booking(c.getLong(0),c.getString(1),c.getLong(2),c.getString(3),c.getString(4));
+        return b;
+    }
+
+
+
+
 
     
 

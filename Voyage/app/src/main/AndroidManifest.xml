@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.voyage">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Hostplacedetails"></activity>
+        <activity android:name=".Calendar"></activity>
+        <activity android:name=".bookingpage" />
+        <activity android:name=".Hostplacedetails" />
         <activity android:name=".travellerprofile" />
         <activity android:name=".Hostprofile" />
         <activity android:name=".Offers_Activity" />

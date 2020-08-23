@@ -59,6 +59,9 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
     final int period = 20;
     final int height = 20;
     int a;
+    Intent i11 = getIntent();
+    static String email11;
+
 
 
     String items[] = {"","Water Activities","Mountain Activities","Hotels","Restaurants","Cottages","Monument Visits","Snow Activities","Others"};
@@ -73,7 +76,7 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
         setContentView(R.layout.activity_home_screen);
         Spinner spinner = findViewById(R.id.spinnerCat);
         Intent i = getIntent();
-        email = i.getStringExtra("email");
+         email = i.getStringExtra("email");
         rv = findViewById(R.id.rVHome);
         offersrv = findViewById(R.id.rvOffers);
         draw = findViewById(R.id.btntvlDrawer);
@@ -86,7 +89,8 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
         r= getResources();
         values = r.getStringArray(R.array.categories);
        // add();
-
+        Intent i11 = getIntent();
+        email11 = i11.getStringExtra("email");
         db = new DataBase(this);
         offering = db.getOfferings();
         places.clear();
@@ -105,11 +109,12 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
         }
 
 
-
+        //getE();
 
 
         offersrv.setLayoutManager(new LinearLayoutManager(this,RecyclerView.HORIZONTAL,false));
         ae = new list_offer_adapter(this,offerOffering);
+
         offersrv.setAdapter(ae);
         scroll();
 
@@ -143,10 +148,15 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
         });
 
         rv.setLayoutManager(new LinearLayoutManager(this,RecyclerView.HORIZONTAL,false));
+
         ad = new list_place_adapter(this,offering);
+
         rv.setAdapter(ad);
 
+
         sv.setOnQueryTextListener(this);
+
+
 
 
     }
@@ -267,7 +277,7 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
 
         a = 0;
 
-        final int d = 400;
+        final int d = 500;
 
 
         final Handler handler = new Handler(Looper.getMainLooper());
@@ -289,15 +299,17 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
 
                 }
 
-                handler.postDelayed(this, a);
+                handler.postDelayed(this, d);
             }
         };
-        handler.postDelayed(run, 400);
+        handler.postDelayed(run, 500);
 
 
 
 
     }
+
+
 
 
 }

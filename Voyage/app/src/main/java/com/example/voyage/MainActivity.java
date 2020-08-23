@@ -11,12 +11,15 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    Button mainTrav,signupTrav;
-    TextView TEmailtv,TPwdTv;
+    Button mainTrav, signupTrav;
+    TextView TEmailtv, TPwdTv;
+  //  String email = TEmailtv.getText().toString();
+    String e11;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
         TEmailtv = findViewById(R.id.tv2TEmail);
@@ -28,10 +31,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 DataBase db = new DataBase(MainActivity.this);
                 Travellers t = db.getTraveller(TEmailtv.getText().toString());
-                if(TPwdTv.getText().toString().equals(t.getPassword())) {
+                if (TPwdTv.getText().toString().equals(t.getPassword())) {
                     Intent intent = new Intent(MainActivity.this, HomeScreenActivity.class);
-                    intent.putExtra("email",t.getEmail());
+                    intent.putExtra("email", t.getEmail());
                     startActivity(intent);
+
                 }
             }
         });
@@ -43,5 +47,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
     }
+
+
 }
