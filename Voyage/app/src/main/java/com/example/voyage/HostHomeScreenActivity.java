@@ -26,7 +26,7 @@ public class HostHomeScreenActivity extends AppCompatActivity implements PopupMe
     private ActionBarDrawerToggle toggle;
     NavigationView nv;
 
-    String email;
+    static String email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +59,7 @@ public class HostHomeScreenActivity extends AppCompatActivity implements PopupMe
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HostHomeScreenActivity.this, Reservation_Activity.class);
+                intent.putExtra("email",email);
                 startActivity(intent);
             }
         });

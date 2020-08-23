@@ -16,7 +16,7 @@ import java.util.List;
 public class DataBase extends SQLiteOpenHelper {
 
 
-    private static final String DataBaseName = "DB17.db";
+    private static final String DataBaseName = "DB18.db";
 
 
 
@@ -297,10 +297,30 @@ public class DataBase extends SQLiteOpenHelper {
         return b;
     }
 
+    public List<Booking> getBooking1(String email){
+        SQLiteDatabase db = this.getWritableDatabase();
+        List<Booking> booking = new ArrayList<>();
+        String q = "SELECT * FROM "+bookingtablename+" WHERE "+hemail+"="+"\"" + email +"\""+"ORDER BY "+bookingid+" DESC" ;
+        Cursor c1 = db.rawQuery(q,null);
+        if(c1.moveToFirst()){
+            do{
+                Booking b = new Booking();
+                b.setId(c1.getLong(0));
+                b.setDate(c1.getString(1));
+                b.setOfferingid(c1.getLong(2));
+                b.setHostemail(c1.getString(3));
+                b.setTravelleremail(c1.getString(4));
+                booking.add(b);
+            }while(c1.moveToNext());
+        }
+        return booking;
+    }
 
 
 
 
-    
+
+
+
 
 }

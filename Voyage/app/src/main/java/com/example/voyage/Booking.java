@@ -1,11 +1,11 @@
 package com.example.voyage;
 
 public class Booking {
-    long id;
-    String date;
-    long offeringid;
-    String hostemail;
-    String travelleremail;
+    private long id;
+    private String date;
+    private long offeringid;
+    private String hostemail;
+    private String travelleremail;
 
     Booking(String date, long offeringid, String hostemail, String travelleremail) {
         this.date = date;
@@ -20,6 +20,10 @@ public class Booking {
         this.offeringid = offeringid;
         this.hostemail = hostemail;
         this.travelleremail = travelleremail;
+    }
+
+    public Booking() {
+
     }
 
     public long getId() {
