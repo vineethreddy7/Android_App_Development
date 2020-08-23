@@ -23,6 +23,8 @@ public class bookingpage extends AppCompatActivity {
     String name;
     String pickdate = "Pick a Date";
     String email1;
+    Double price;
+    static long id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,7 @@ public class bookingpage extends AppCompatActivity {
         tvbrating.setText(String.valueOf(o.getRating()));
         tvbdesc.setText(o.getDescription());
         ivbimage.setImageBitmap(convertToBitmap(o.getPhoto()));
+        price = o.getPrice();
         booking.setText("Book now at $"+o.getPrice());
         Intent intt = getIntent();
         pickdate = intt.getStringExtra("date");
@@ -59,8 +62,15 @@ public class bookingpage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Booking b = new Booking(pickdate,o.getId(),o.getHostemail(),email1);
-                long id = db.addBooing(b);
+                id = db.addBooing(b);
                 Toast.makeText(bookingpage.this,"Booking Added "+id,Toast.LENGTH_SHORT).show();
+                Intent itt = new Intent(bookingpage.this,Bookingdetails.class);
+                itt.putExtra("id",id);
+                itt.putExtra("name",tvbname.getText().toString());
+                itt.putExtra("date",pickdate);
+                itt.putExtra("price",price);
+                startActivity(itt);
+
             }
         });
         datepick.setOnClickListener(new View.OnClickListener() {

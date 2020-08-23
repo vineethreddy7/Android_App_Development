@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Bookingdetails">
+
+    <TextView
+        android:id="@+id/tvfinalbname"
+        android:layout_width="120dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="32dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.72"
+        app:layout_constraintStart_toEndOf="@+id/textView42"
+        app:layout_constraintTop_toBottomOf="@+id/tvfinalbid" />
+
+    <TextView
+        android:id="@+id/tvfinalbid"
+        android:layout_width="107dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="64dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.734"
+        app:layout_constraintStart_toEndOf="@+id/textView40"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvfinalbfinal"
+        android:layout_width="122dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="44dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintStart_toEndOf="@+id/textView49"
+        app:layout_constraintTop_toBottomOf="@+id/tvTax" />
+
+    <TextView
+        android:id="@+id/tvTax"
+        android:layout_width="122dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="28dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.791"
+        app:layout_constraintStart_toEndOf="@+id/textView46"
+        app:layout_constraintTop_toBottomOf="@+id/tvservice" />
+
+    <TextView
+        android:id="@+id/tvservice"
+        android:layout_width="118dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="36dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toEndOf="@+id/textView48"
+        app:layout_constraintTop_toBottomOf="@+id/tvfinalbprice" />
+
+    <TextView
+        android:id="@+id/tvfinalbprice"
+        android:layout_width="115dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="36dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.773"
+        app:layout_constraintStart_toEndOf="@+id/textView44"
+        app:layout_constraintTop_toBottomOf="@+id/tvfinalbdate" />
+
+    <TextView
+        android:id="@+id/textView49"
+        android:layout_width="190dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="44dp"
+        android:text="Final Amount Payable"
+        android:textColor="#E53935"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView46" />
+
+    <TextView
+        android:id="@+id/textView48"
+        android:layout_width="191dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="36dp"
+        android:text="Service Charges(10%)"
+        android:textColor="#E53935"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView44" />
+
+    <TextView
+        android:id="@+id/textView46"
+        android:layout_width="106dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="32dp"
+        android:text="Tax(13%)"
+        android:textColor="#E53935"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView48" />
+
+    <TextView
+        android:id="@+id/textView44"
+        android:layout_width="106dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="40dp"
+        android:text="Price"
+        android:textColor="#E53935"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView43" />
+
+    <TextView
+        android:id="@+id/textView43"
+        android:layout_width="106dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="40dp"
+        android:text="Date"
+        android:textColor="#E53935"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView42" />
+
+    <TextView
+        android:id="@+id/textView42"
+        android:layout_width="147dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="36dp"
+        android:text="Destination Name"
+        android:textColor="#E53935"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView40" />
+
+    <TextView
+        android:id="@+id/textView40"
+        android:layout_width="106dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="64dp"
+        android:text="Booking ID"
+        android:textColor="#E53935"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvfinalbdate"
+        android:layout_width="124dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="36dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.824"
+        app:layout_constraintStart_toEndOf="@+id/textView43"
+        app:layout_constraintTop_toBottomOf="@+id/tvfinalbname" />
+
+    <Button
+        android:id="@+id/btnPayment"
+        android:layout_width="205dp"
+        android:layout_height="47dp"
+        android:layout_marginBottom="20dp"
+        android:background="#5E35B1"
+        android:text="proceed to payment"
+        android:textColor="#F8F1F1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView49" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

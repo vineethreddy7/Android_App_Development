@@ -289,7 +289,7 @@ public class DataBase extends SQLiteOpenHelper {
 
     public Booking getBooking(long id){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor c = db.query(bookingtablename,new String[]{bookingid,bookingdate,boid,hemail,temail},bookingid+"=?",new String[]{String.valueOf(bookingid)},null,null,null,null);
+        Cursor c = db.query(bookingtablename,new String[]{bookingid,bookingdate,boid,hemail,temail},bookingid+"=?",new String[]{String.valueOf(id)},null,null,null,null);
         if(c!=null){
             c.moveToFirst();
         }
