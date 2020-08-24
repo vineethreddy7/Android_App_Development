@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -27,6 +28,8 @@ public class Reservation_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_reservation_);
         Intent i = getIntent();
         email = i.getStringExtra("email");
+        Log.d("Email that we got is",""+email);
+        db = new DataBase(this);
         resRv = findViewById(R.id.rvReservations);
         b = db.getBooking1(email);
         resRv.setLayoutManager(new LinearLayoutManager(this));

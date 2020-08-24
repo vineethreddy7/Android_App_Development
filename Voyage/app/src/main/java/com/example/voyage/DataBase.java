@@ -189,7 +189,44 @@ public class DataBase extends SQLiteOpenHelper {
         return o;
     }
 
-    public List<Offering> getOfferings(){
+    public Offering getO1(long id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor c = db.query(offertablename,new String[]{oid,oname,ophoto,oprice,oplace,olatitude,olongitude,orating,odescription,ohostemail,oreviews,otype,ooffer},oid+"=?",new String[]{String.valueOf(id)},null,null,null,null);
+        if(c!=null){
+            c.moveToFirst();
+        }
+        Offering o = new Offering(c.getLong(0),c.getString(1),c.getString(2),c.getDouble(3),c.getString(4),c.getDouble(5),c.getDouble(6),c.getDouble(7),c.getString(8),c.getString(9),c.getString(10),c.getString(11),c.getString(12));
+        return o;
+    }
+
+    public List<Offering> getOfferings(String email){
+        SQLiteDatabase db = this.getWritableDatabase();
+        List<Offering> offering = new ArrayList<>();
+        String q = "SELECT * FROM "+offertablename+ " WHERE "+ohostemail+"="+"\"" + email +"\""+"ORDER BY "+oid+" DESC";
+        Cursor c1 = db.rawQuery(q,null);
+        if(c1.moveToFirst()){
+            do{
+                Offering of = new Offering();
+                of.setId(c1.getLong(0));
+                of.setName(c1.getString(1));
+                of.setPhoto(c1.getString(2));
+                of.setPrice(c1.getDouble(3));
+                of.setPlace(c1.getString(4));
+                of.setLatitude(c1.getDouble(5));
+                of.setLongitude(c1.getDouble(6));
+                of.setRating(c1.getDouble(7));
+                of.setDescription(c1.getString(8));
+                of.setHostemail(c1.getString(9));
+                of.setReview(c1.getString(10));
+                of.setType(c1.getString(11));
+                of.setOffer(c1.getString(12));
+                offering.add(of);
+            }while(c1.moveToNext());
+        }
+        return offering;
+    }
+
+    public List<Offering> getOfferings1(){
         SQLiteDatabase db = this.getWritableDatabase();
         List<Offering> offering = new ArrayList<>();
         String q = "SELECT * FROM "+offertablename+" ORDER BY "+oid+" DESC";
@@ -301,6 +338,44 @@ public class DataBase extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         List<Booking> booking = new ArrayList<>();
         String q = "SELECT * FROM "+bookingtablename+" WHERE "+hemail+"="+"\"" + email +"\""+"ORDER BY "+bookingid+" DESC" ;
+        Cursor c1 = db.rawQuery(q,null);
+        if(c1.moveToFirst()){
+            do{
+                Booking b = new Booking();
+                b.setId(c1.getLong(0));
+                b.setDate(c1.getString(1));
+                b.setOfferingid(c1.getLong(2));
+                b.setHostemail(c1.getString(3));
+                b.setTravelleremail(c1.getString(4));
+                booking.add(b);
+            }while(c1.moveToNext());
+        }
+        return booking;
+    }
+
+    public List<Booking> getBooking2(String email){
+        SQLiteDatabase db = this.getWritableDatabase();
+        List<Booking> booking = new ArrayList<>();
+        String q = "SELECT * FROM "+bookingtablename+" WHERE "+temail+"="+"\"" + email +"\""+"ORDER BY "+bookingid+" DESC" ;
+        Cursor c1 = db.rawQuery(q,null);
+        if(c1.moveToFirst()){
+            do{
+                Booking b = new Booking();
+                b.setId(c1.getLong(0));
+                b.setDate(c1.getString(1));
+                b.setOfferingid(c1.getLong(2));
+                b.setHostemail(c1.getString(3));
+                b.setTravelleremail(c1.getString(4));
+                booking.add(b);
+            }while(c1.moveToNext());
+        }
+        return booking;
+    }
+
+    public List<Booking> getBooking3(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        List<Booking> booking = new ArrayList<>();
+        String q = "SELECT * FROM "+bookingtablename+" ORDER BY "+bookingid+" DESC" ;
         Cursor c1 = db.rawQuery(q,null);
         if(c1.moveToFirst()){
             do{

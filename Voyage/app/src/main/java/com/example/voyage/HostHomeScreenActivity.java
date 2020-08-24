@@ -7,6 +7,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -38,7 +39,7 @@ public class HostHomeScreenActivity extends AppCompatActivity implements PopupMe
         buttonUploadPicture = (Button) findViewById(R.id.uploadPictureButton);
         buttonReservation = (Button) findViewById(R.id.ReservationButton);
         buttonAvailable = (Button) findViewById(R.id.yourplacesBtn);
-        buttonOffer = (Button) findViewById(R.id.OffersButton);
+     //   buttonOffer = (Button) findViewById(R.id.OffersButton);
         drawerbtn = findViewById(R.id.btnDrawer);
 
 
@@ -60,6 +61,7 @@ public class HostHomeScreenActivity extends AppCompatActivity implements PopupMe
             public void onClick(View v) {
                 Intent intent = new Intent(HostHomeScreenActivity.this, Reservation_Activity.class);
                 intent.putExtra("email",email);
+                Log.d("Email that has to come ",""+email);
                 startActivity(intent);
             }
         });
@@ -110,6 +112,7 @@ public class HostHomeScreenActivity extends AppCompatActivity implements PopupMe
             Intent intent = new Intent(HostHomeScreenActivity.this, MainActivity2.class);
             startActivity(intent);
         }
+
         return false;
     }
 

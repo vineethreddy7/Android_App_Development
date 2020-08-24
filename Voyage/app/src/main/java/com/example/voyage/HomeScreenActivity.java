@@ -1,5 +1,6 @@
 package com.example.voyage;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -26,14 +27,17 @@ import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.material.navigation.NavigationView;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener, SearchView.OnQueryTextListener, AdapterView.OnItemSelectedListener {
+public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener, SearchView.OnQueryTextListener, AdapterView.OnItemSelectedListener, NavigationView.OnNavigationItemSelectedListener {
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
+    NavigationView nv;
     //private Spinner spinner;
     RecyclerView rv, offersrv;
     List<details_place> place;
@@ -81,6 +85,7 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
         offersrv = findViewById(R.id.rvOffers);
         draw = findViewById(R.id.btntvlDrawer);
         sv = findViewById(R.id.searchbar);
+        nv = findViewById(R.id.nV);
         sp = findViewById(R.id.spinnerCat);
         ArrayAdapter adapter = new ArrayAdapter(this,R.layout.support_simple_spinner_dropdown_item,items);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -92,7 +97,7 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
         Intent i11 = getIntent();
         email11 = i11.getStringExtra("email");
         db = new DataBase(this);
-        offering = db.getOfferings();
+        offering = db.getOfferings1();
         places.clear();
         for(int k=0;k<offering.size();k++){
             places.add(offering.get(0).getPlace());
@@ -107,7 +112,7 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
                 break;
             }
         }
-
+        nv.setNavigationItemSelectedListener(this);
 
         //getE();
 
@@ -187,6 +192,14 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
         if(id == R.id.signout){
             Intent intent = new Intent(HomeScreenActivity.this, MainActivity.class);
             startActivity(intent);
+        }
+        if(id == R.id.bookings){
+            Intent itt = new Intent(this,Mybookings.class);
+            itt.putExtra("email",email);
+            startActivity(itt);
+        }
+        if(id == R.id.visited){
+            startActivity(new Intent(this,Othersvisited.class));
         }
         return false;
     }
@@ -310,6 +323,17 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
     }
 
 
-
-
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if(id == R.id.bookings){
+            Intent itt = new Intent(this,Mybookings.class);
+            itt.putExtra("email",email);
+            startActivity(itt);
+        }
+        if(id == R.id.visited){
+            startActivity(new Intent(this,Othersvisited.class));
+        }
+        return false;
+    }
 }

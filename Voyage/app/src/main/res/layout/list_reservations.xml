@@ -7,7 +7,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="115dp">
+        android:layout_height="112dp"
+        android:background="@color/colorPrimary">
 
         <TextView
             android:id="@+id/tvreservationname"
@@ -16,6 +17,7 @@
             android:layout_marginStart="28dp"
             android:layout_marginLeft="28dp"
             android:layout_marginTop="24dp"
+            android:textColor="#F4F0F0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,6 +26,7 @@
             android:layout_width="81dp"
             android:layout_height="24dp"
             android:layout_marginTop="24dp"
+            android:textColor="#F8F4F4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.556"
             app:layout_constraintStart_toEndOf="@+id/tvreservationname"
@@ -33,6 +36,7 @@
             android:id="@+id/tvDateR"
             android:layout_width="137dp"
             android:layout_height="24dp"
+            android:textColor="#FAF6F6"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.102"

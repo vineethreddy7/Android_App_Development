@@ -51,20 +51,20 @@
     </Button>
 
         <Button
-        android:id="@+id/ReservationButton"
-        android:layout_width="391dp"
-        android:layout_height="118dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/yellow"
-        android:fontFamily="@font/aclonica"
-        android:text="Reservations"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/uploadPictureButton" />
+            android:id="@+id/ReservationButton"
+            android:layout_width="391dp"
+            android:layout_height="118dp"
+            android:layout_marginTop="52dp"
+            android:background="@color/yellow"
+            android:fontFamily="@font/aclonica"
+            android:text="Reservations"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/uploadPictureButton" />
 
-    <Button
+        <Button
         android:id="@+id/uploadPictureButton"
         android:layout_width="391dp"
         android:layout_height="118dp"
@@ -83,28 +83,17 @@
             android:layout_width="391dp"
             android:layout_height="118dp"
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             android:background="@color/yellow"
             android:fontFamily="@font/aclonica"
             android:text="YOUR PLACES"
             android:textColor="#000000"
             android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ReservationButton" />
-
-    <Button
-        android:id="@+id/OffersButton"
-        android:layout_width="391dp"
-        android:layout_height="118dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/yellow"
-        android:fontFamily="@font/aclonica"
-        android:text="Offers"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/yourplacesBtn" />
+            app:layout_constraintTop_toBottomOf="@+id/ReservationButton"
+            app:layout_constraintVertical_bias="0.199" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

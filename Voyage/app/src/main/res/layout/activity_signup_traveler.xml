@@ -212,7 +212,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="80dp"
         android:layout_marginRight="80dp"
-        android:layout_marginBottom="136dp"
+        android:layout_marginBottom="90dp"
         android:background="@color/yellow"
         android:fontFamily="@font/chewy"
         android:text="Cancel"
@@ -220,16 +220,16 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvHRPwd"
-        app:layout_constraintVertical_bias="0.496" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTRPwd"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/TButtonCreate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginLeft="68dp"
-        android:layout_marginBottom="136dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginBottom="90dp"
         android:background="@color/yellow"
         android:fontFamily="@font/chewy"
         android:text="Create"
@@ -237,7 +237,7 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvHRPwd"
-        app:layout_constraintVertical_bias="0.496" />
+        app:layout_constraintTop_toBottomOf="@+id/textView27"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

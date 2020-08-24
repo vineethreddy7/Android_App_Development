@@ -24,12 +24,9 @@ public class Offering {
         this.photo = photo;
         this.price = price;
         this.place = place;
-        this.latitude = latitude;
-        this.longitude = longitude;
         this.rating = rating;
         this.description = description;
         this.hostemail = hostemail;
-        this.review = review;
         this.type = type;
         this.offer = offer;
     }
