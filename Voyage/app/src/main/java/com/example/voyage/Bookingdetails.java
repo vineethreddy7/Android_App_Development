@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -46,6 +47,12 @@ public class Bookingdetails extends AppCompatActivity {
         btaxtv.setText("$"+String.valueOf(Math.round(tax)));
         finalprice = price + servicecharge + tax;
         bfinaltv.setText("$"+String.valueOf(Math.round(finalprice)));
+        paymentbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Bookingdetails.this,PaymentActivity.class));
+            }
+        });
 
     }
 }

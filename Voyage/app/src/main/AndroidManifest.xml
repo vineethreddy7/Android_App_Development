@@ -3,6 +3,7 @@
     package="com.example.voyage">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Othersvisited"></activity>
+        <activity android:name=".WeatherActivity"></activity>
+        <activity android:name=".PaymentActivity" />
+        <activity android:name=".Translatoractivity" />
+        <activity android:name=".Othersvisited" />
         <activity android:name=".Mybookings" />
         <activity android:name=".Bookingdetails" />
         <activity android:name=".Calendar" />
@@ -41,6 +45,9 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+        <meta-data
+            android:name="com.google.android.gms.wallet.api.enabled"
+            android:value="true" />
     </application>
 
 </manifest>

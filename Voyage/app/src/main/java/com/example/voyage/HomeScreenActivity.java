@@ -201,6 +201,13 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
         if(id == R.id.visited){
             startActivity(new Intent(this,Othersvisited.class));
         }
+        if(id == R.id.weather){
+            Intent it1 = new Intent(this,WeatherActivity.class);
+            startActivity(it1);
+        }
+        if(id == R.id.translator){
+            startActivity(new Intent(this,Translatoractivity.class));
+        }
         return false;
     }
 
