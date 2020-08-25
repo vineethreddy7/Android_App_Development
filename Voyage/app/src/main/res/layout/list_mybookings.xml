@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="102dp"
-    android:background="#D3EBF6">
+    android:background="@color/material_on_background_disabled">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="99dp"
-        android:background="@color/yellow">
+        android:background="@drawable/img">
 
         <TextView
             android:id="@+id/tvmbname"
@@ -18,7 +18,7 @@
             android:layout_marginStart="44dp"
             android:layout_marginLeft="44dp"
             android:fontFamily="@font/chewy"
-            android:textColor="#000000"
+            android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -30,7 +30,7 @@
             android:layout_height="21dp"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/chewy"
-            android:textColor="#000000"
+            android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.537"
             app:layout_constraintStart_toEndOf="@+id/tvmbname"
@@ -43,7 +43,7 @@
             android:layout_marginStart="44dp"
             android:layout_marginLeft="44dp"
             android:fontFamily="@font/chewy"
-            android:textColor="#000000"
+            android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvmbname"

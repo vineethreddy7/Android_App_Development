@@ -16,7 +16,7 @@ import java.util.List;
 public class DataBase extends SQLiteOpenHelper {
 
 
-    private static final String DataBaseName = "DB18.db";
+    private static final String DataBaseName = "DBA1.db";
 
 
 
@@ -74,7 +74,7 @@ public class DataBase extends SQLiteOpenHelper {
         Hosts h = new Hosts(c.getString(0),c.getString(1),c.getString(2),c.getString(3),c.getString(4),c.getString(5));
         return h;}
         else if(c.equals(null)) {
-            return null;
+            return new Hosts("","","","","","");
         }
         return null;
     }

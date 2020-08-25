@@ -199,7 +199,7 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
         if(id == R.id.bookings){
             Intent itt = new Intent(this,Mybookings.class);
             itt.putExtra("email",email11);
-            Log.d("Email is",""+email11);
+            Log.d("Emailbook is",""+email11);
             startActivity(itt);
         }
         if(id == R.id.visited){

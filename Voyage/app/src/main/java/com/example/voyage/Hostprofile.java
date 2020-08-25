@@ -89,11 +89,11 @@ Bitmap newimage;
                     h.setImage(str);
                 }
                 db.editHost(h);
-             //   Toast.makeText(Hostprofile.this,"Successful",Toast.LENGTH_SHORT).show();
-              //  Intent it = new Intent(Hostprofile.this,HostHomeScreenActivity.class);
+                Toast.makeText(Hostprofile.this,"Successful",Toast.LENGTH_SHORT).show();
+                Intent it = new Intent(Hostprofile.this,HostHomeScreenActivity.class);
                 Log.d("Email 111 is",""+email);
-              //  it.putExtra("email",email);
-              //  startActivity(it);
+               it.putExtra("email",email);
+                startActivity(it);
             }
         });
         HCancel.setOnClickListener(new View.OnClickListener() {

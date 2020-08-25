@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D3EBF6"
+    android:background="@drawable/wal"
     tools:context=".Reservation_Activity">
 
     <TextView
@@ -14,7 +14,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/rock_salt"
         android:text="Reservations"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,12 +22,13 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvReservations"
-        android:layout_width="391dp"
-        android:layout_height="517dp"
-        android:background="@color/yellow"
+        android:layout_width="403dp"
+        android:layout_height="621dp"
+        android:background="@android:drawable/divider_horizontal_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.058"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView34"
-        app:layout_constraintVertical_bias="0.241" />
+        app:layout_constraintVertical_bias="0.84" />
 </androidx.constraintlayout.widget.ConstraintLayout>

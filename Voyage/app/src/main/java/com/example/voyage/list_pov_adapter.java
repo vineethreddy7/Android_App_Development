@@ -1,6 +1,7 @@
 package com.example.voyage;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,8 @@ public class list_pov_adapter extends RecyclerView.Adapter<list_pov_adapter.View
     List<Booking> booking;
     LayoutInflater inflater;
     DataBase db;
+    String email = "";
+    String tfname,tlname;
 
 
     list_pov_adapter(Context context,List<Booking> booking,DataBase db){
@@ -37,10 +40,14 @@ public class list_pov_adapter extends RecyclerView.Adapter<list_pov_adapter.View
     @Override
     public void onBindViewHolder(@NonNull list_pov_adapter.ViewHolder holder, int i) {
         long id = booking.get(i).getId();
-        String email = booking.get(i).getTravelleremail();
+        email = booking.get(i).getTravelleremail();
+        Log.d("Email 444 is ", "" + email);
         long oid = booking.get(i).getOfferingid();
-        String tfname = db.getTraveller(email).getFname();
-       String tlname = db.getTraveller(email).getLname();
+        if (!booking.get(i).getTravelleremail().equals(null)) {
+            email = booking.get(i).getTravelleremail();
+            tfname = db.getTraveller(email).getFname();
+        tlname = db.getTraveller(email).getLname();
+    }
         String name = db.getO1(oid).getName();
         String date = booking.get(i).getDate();
         holder.povpnametv.setText(name);//name

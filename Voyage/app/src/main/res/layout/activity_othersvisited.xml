@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D3EBF6"
+    android:background="@drawable/wal"
     tools:context=".Othersvisited">
 
     <TextView
@@ -14,7 +14,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/rock_salt"
         android:text="Places Others Visited"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -23,13 +23,13 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPOV"
-        android:layout_width="362dp"
-        android:layout_height="423dp"
-        android:background="@color/yellow"
+        android:layout_width="413dp"
+        android:layout_height="615dp"
+        android:background="@android:drawable/divider_horizontal_bright"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView51"
-        app:layout_constraintVertical_bias="0.229" />
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

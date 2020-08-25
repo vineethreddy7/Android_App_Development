@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D3EBF6"
+    android:background="@drawable/wal"
     tools:context=".Calendar">
 
     <CalendarView
@@ -26,7 +26,7 @@
         android:fontFamily="@font/rock_salt"
         android:gravity="center"
         android:text="Select a Date"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,7 +40,7 @@
         android:layout_height="23dp"
         android:layout_marginTop="32dp"
         android:gravity="center"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

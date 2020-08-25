@@ -9,6 +9,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     Button mainTrav, signupTrav;
@@ -30,12 +31,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DataBase db = new DataBase(MainActivity.this);
-                Travellers t = db.getTraveller(TEmailtv.getText().toString());
-                if (TPwdTv.getText().toString().equals(t.getPassword())) {
-                    Intent intent = new Intent(MainActivity.this, HomeScreenActivity.class);
-                    intent.putExtra("email", t.getEmail());
-                    startActivity(intent);
+                if(!TEmailtv.getText().toString().equals("")) {
+                    Travellers t = db.getTraveller(TEmailtv.getText().toString());
+                    if (TPwdTv.getText().toString().equals(t.getPassword())) {
+                        Intent intent = new Intent(MainActivity.this, HomeScreenActivity.class);
+                        intent.putExtra("email", t.getEmail());
+                        startActivity(intent);
 
+                    }
+                    else{
+                        Toast.makeText(MainActivity.this,"Incorrect Password, Try Again",Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else{
+                    Toast.makeText(MainActivity.this,"Username doesn't exist, Click Signup",Toast.LENGTH_SHORT).show();
                 }
             }
         });

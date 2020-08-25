@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="182dp"
     android:layout_height="216dp"
-    android:background="#D3EBF6">
+    android:background="@color/material_on_background_disabled">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="180dp"
         android:layout_height="216dp"
-        android:background="#AEEA00">
+        android:background="@drawable/img">
 
         <ImageView
             android:id="@+id/ivOffers"
@@ -27,7 +27,7 @@
             android:layout_height="22dp"
             android:layout_marginTop="12dp"
             android:fontFamily="@font/chewy"
-            android:textColor="#000000"
+            android:textColor="#FFFFFF"
             android:textStyle="bold|italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.506"
@@ -40,7 +40,7 @@
             android:layout_height="22dp"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/chewy"
-            android:textColor="#000000"
+            android:textColor="#FFFFFF"
             android:textStyle="bold|italic"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

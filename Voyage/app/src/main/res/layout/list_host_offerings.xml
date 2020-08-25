@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="136dp"
-    android:background="#D3EBF6">
+    android:layout_height="127dp"
+    android:background="@color/material_on_background_disabled">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="125dp"
-        android:background="@color/yellow">
+        android:background="@drawable/img">
 
         <ImageView
             android:id="@+id/ivHostplaces"
@@ -30,7 +30,7 @@
             android:layout_marginTop="28dp"
             android:fontFamily="@font/chewy"
             android:text="TextView"
-            android:textColor="#000000"
+            android:textColor="#FFFFFF"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.268"
@@ -46,7 +46,7 @@
             android:layout_marginTop="20dp"
             android:fontFamily="@font/chewy"
             android:text="TextView"
-            android:textColor="#000000"
+            android:textColor="#FFFFFF"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/ivHostplaces"
             app:layout_constraintTop_toBottomOf="@+id/tvHostplacename" />
@@ -60,7 +60,7 @@
             android:layout_marginTop="20dp"
             android:fontFamily="@font/chewy"
             android:text="TextView"
-            android:textColor="#000000"
+            android:textColor="#FFFFFF"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.026"

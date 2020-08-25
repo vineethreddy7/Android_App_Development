@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D3EBF6"
+    android:background="@drawable/wallpaper"
     tools:context=".WeatherActivity">
 
     <TextView
@@ -15,7 +15,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/chewy"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +27,7 @@
         android:layout_height="34dp"
         android:layout_marginTop="36dp"
         android:fontFamily="@font/chewy"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,11 +37,11 @@
 
     <TextView
         android:id="@+id/tvwTemp"
-        android:layout_width="94dp"
-        android:layout_height="108dp"
+        android:layout_width="134dp"
+        android:layout_height="109dp"
         android:layout_marginTop="56dp"
         android:fontFamily="@font/aclonica"
-        android:textColor="@color/black"
+        android:textColor="#FFFFFF"
         android:textSize="80sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.513"
@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text=".C"
-        android:textColor="@color/black"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,7 +69,7 @@
         android:layout_marginTop="28dp"
         android:fontFamily="@font/chewy"
         android:gravity="center"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -82,7 +82,7 @@
         android:layout_height="125dp"
         android:layout_marginBottom="90dp"
         android:fontFamily="@font/chewy"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -100,7 +100,7 @@
         android:fontFamily="@font/chewy"
         android:hint="Enter place name"
         android:inputType="textPersonName"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

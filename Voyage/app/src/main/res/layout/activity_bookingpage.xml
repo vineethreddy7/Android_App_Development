@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D3EBF6"
+    android:background="@drawable/wal"
     tools:context=".bookingpage">
 
     <TextView
@@ -14,7 +14,7 @@
         android:layout_marginTop="24dp"
         android:fontFamily="@font/rock_salt"
         android:gravity="center"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,7 +28,7 @@
         android:layout_marginTop="24dp"
         android:fontFamily="@font/chewy"
         android:gravity="center"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.278"
@@ -41,7 +41,7 @@
         android:layout_height="23dp"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/chewy"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.474"
@@ -54,7 +54,7 @@
         android:layout_height="107dp"
         android:layout_marginTop="12dp"
         android:fontFamily="@font/chewy"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvbookingPlace" />

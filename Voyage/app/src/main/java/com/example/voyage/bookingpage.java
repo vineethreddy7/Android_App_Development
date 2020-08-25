@@ -63,6 +63,7 @@ public class bookingpage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Booking b = new Booking(pickdate,o.getId(),o.getHostemail(),email1);
+                Log.d("Email booking is",""+email1);
                 id = db.addBooing(b);
                 Toast.makeText(bookingpage.this,"Booking Added "+id,Toast.LENGTH_SHORT).show();
                 Intent itt = new Intent(bookingpage.this,Bookingdetails.class);

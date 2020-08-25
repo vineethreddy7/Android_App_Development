@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D3EBF6"
+    android:background="@drawable/wal"
     tools:context=".OptionActivity">
 
     <ImageView
@@ -52,7 +52,7 @@
         android:layout_marginTop="43dp"
         android:fontFamily="@font/aclonica"
         android:text="- Select a option to LogIn -"
-        android:textColor="#1A4A1C"
+        android:textColor="#FFFFFF"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
