@@ -7,9 +7,9 @@
     android:background="#D3EBF6">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="182dp"
+        android:layout_width="180dp"
         android:layout_height="216dp"
-        android:background="@color/yellow">
+        android:background="#AEEA00">
 
         <ImageView
             android:id="@+id/ivOffers"

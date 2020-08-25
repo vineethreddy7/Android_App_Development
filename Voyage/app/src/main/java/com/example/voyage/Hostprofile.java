@@ -39,7 +39,7 @@ DataBase db;
 Hosts h;
 Bitmap selectedImage;
 String str = "";
-String email;
+String email = "";
 Bitmap newimage;
     final List<Bitmap> bm = new ArrayList<>();
     Bitmap bp;
@@ -61,6 +61,7 @@ Bitmap newimage;
         db = new DataBase(this);
         Intent i = getIntent();
         email = i.getStringExtra("email");
+        Log.d("Email 222 is",""+email);
         h = db.getHost(email);
         HFName3tv.setText(h.getFirstname());
         HLName3tv.setText(h.getLastname());
@@ -88,15 +89,20 @@ Bitmap newimage;
                     h.setImage(str);
                 }
                 db.editHost(h);
-                Toast.makeText(Hostprofile.this,"Successful",Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(Hostprofile.this,HostHomeScreenActivity.class));
+             //   Toast.makeText(Hostprofile.this,"Successful",Toast.LENGTH_SHORT).show();
+              //  Intent it = new Intent(Hostprofile.this,HostHomeScreenActivity.class);
+                Log.d("Email 111 is",""+email);
+              //  it.putExtra("email",email);
+              //  startActivity(it);
             }
         });
         HCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Hostprofile.this,HostHomeScreenActivity.class));
 
+                Intent it = new Intent(Hostprofile.this,HostHomeScreenActivity.class);
+                it.putExtra("email",email);
+                startActivity(it);
             }
         });
 

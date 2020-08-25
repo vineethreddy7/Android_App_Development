@@ -92,7 +92,7 @@ public class travellerprofile extends AppCompatActivity {
                     t.setImage(str);
                 }
                 db.editTraveller(t);
-                Toast.makeText(travellerprofile.this,"Successful",Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(travellerprofile.this,"Successful",Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(travellerprofile.this,HomeScreenActivity.class));
 
             }
