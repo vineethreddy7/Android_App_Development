@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="138dp"
+    android:background="#D3EBF6">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="136dp"
+        android:background="@color/yellow">
+
+        <TextView
+            android:id="@+id/tvpovpname"
+            android:layout_width="132dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/chewy"
+            android:textColor="#000000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvpovdate"
+            android:layout_width="110dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/chewy"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.519"
+            app:layout_constraintStart_toEndOf="@+id/tvpovpname"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvpovname"
+            android:layout_width="281dp"
+            android:layout_height="25dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/chewy"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.307"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvpovpname"
+            app:layout_constraintVertical_bias="0.647" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
