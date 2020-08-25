@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WeatherActivity"></activity>
+        <activity android:name=".Maps"></activity>
+        <activity android:name=".WeatherActivity" />
         <activity android:name=".PaymentActivity" />
         <activity android:name=".Translatoractivity" />
         <activity android:name=".Othersvisited" />
@@ -23,7 +24,6 @@
         <activity android:name=".Hostplacedetails" />
         <activity android:name=".travellerprofile" />
         <activity android:name=".Hostprofile" />
-        <activity android:name=".Offers_Activity" />
         <activity android:name=".Available_Activity" />
         <activity android:name=".Reservation_Activity" />
         <activity android:name=".Picture_Activity" />
@@ -48,6 +48,9 @@
         <meta-data
             android:name="com.google.android.gms.wallet.api.enabled"
             android:value="true" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
     </application>
 
 </manifest>

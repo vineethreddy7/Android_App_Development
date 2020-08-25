@@ -1,5 +1,6 @@
 package com.example.voyage;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,13 +20,13 @@ import android.widget.PopupMenu;
 import com.google.android.material.internal.NavigationMenu;
 import com.google.android.material.navigation.NavigationView;
 
-public class HostHomeScreenActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener{
+public class HostHomeScreenActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener, NavigationView.OnNavigationItemSelectedListener {
     Button buttonUploadPicture,buttonReservation,buttonAvailable,buttonOffer,drawerbtn;
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
     private DrawerLayout dL;
     private ActionBarDrawerToggle toggle;
-    NavigationView nv;
+    NavigationView nv1;
 
     static String email;
     @Override
@@ -41,7 +42,8 @@ public class HostHomeScreenActivity extends AppCompatActivity implements PopupMe
         buttonAvailable = (Button) findViewById(R.id.yourplacesBtn);
      //   buttonOffer = (Button) findViewById(R.id.OffersButton);
         drawerbtn = findViewById(R.id.btnDrawer);
-
+        nv1 = findViewById(R.id.nav);
+        nv1.setNavigationItemSelectedListener(this);
 
 
       //  toggle = new ActionBarDrawerToggle(this,dL,R.string.open,R.string.close);
@@ -73,13 +75,7 @@ public class HostHomeScreenActivity extends AppCompatActivity implements PopupMe
                 startActivity(intent);
             }
         });
-        buttonOffer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HostHomeScreenActivity.this, Offers_Activity.class);
-                startActivity(intent);
-            }
-        });
+
         drawerbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -112,10 +108,20 @@ public class HostHomeScreenActivity extends AppCompatActivity implements PopupMe
             Intent intent = new Intent(HostHomeScreenActivity.this, MainActivity2.class);
             startActivity(intent);
         }
+        if(id == R.id.Translator){
+            startActivity(new Intent(this,Translatoractivity.class));
+        }
 
         return false;
     }
 
 
-
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if(id == R.id.Translator){
+            startActivity(new Intent(this,Translatoractivity.class));
+        }
+        return false;
+    }
 }

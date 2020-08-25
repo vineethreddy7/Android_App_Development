@@ -167,14 +167,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/profile" />
 
-    <Button
-        android:id="@+id/btnImg"
-        android:layout_width="67dp"
-        android:layout_height="53dp"
-        android:background="@android:drawable/ic_menu_camera"
-        android:onClick="onClick"
-        app:layout_constraintBottom_toBottomOf="@+id/ibHost"
-        app:layout_constraintEnd_toEndOf="@+id/ibHost"
-        app:layout_constraintStart_toStartOf="@+id/ibHost" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

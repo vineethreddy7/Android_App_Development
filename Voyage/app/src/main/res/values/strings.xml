@@ -24,4 +24,5 @@
     </string-array>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="google_maps_key">AIzaSyAA-8ausHCapSUcubqDgLSsReUYQFlCxus</string>
 </resources>

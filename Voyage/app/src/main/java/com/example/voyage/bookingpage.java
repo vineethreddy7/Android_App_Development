@@ -19,7 +19,7 @@ public class bookingpage extends AppCompatActivity {
     Offering o;
     TextView tvbname,tvbplace,tvbrating,tvbdesc;
     ImageView ivbimage;
-    Button booking, datepick;
+    Button booking, datepick, mapbtn;
     String name;
     String pickdate = "Pick a Date";
     String email1;
@@ -43,6 +43,7 @@ public class bookingpage extends AppCompatActivity {
         ivbimage = findViewById(R.id.ivbookingImage);
         booking = findViewById(R.id.btnbookingBook);
         datepick = findViewById(R.id.btndatepick);
+        mapbtn = findViewById(R.id.btnvmap);
         tvbname.setText(o.getName());
         tvbplace.setText(o.getPlace());
         tvbrating.setText(String.valueOf(o.getRating()));
@@ -57,7 +58,7 @@ public class bookingpage extends AppCompatActivity {
 
         HomeScreenActivity hm = new HomeScreenActivity();
         email1 = hm.email11;
-        Log.d("Email is ",""+email1);
+        Log.d("Email456 is ",""+email1);
         booking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,6 +70,7 @@ public class bookingpage extends AppCompatActivity {
                 itt.putExtra("name",tvbname.getText().toString());
                 itt.putExtra("date",pickdate);
                 itt.putExtra("price",price);
+                itt.putExtra("email",email1);
                 startActivity(itt);
 
             }
@@ -79,6 +81,16 @@ public class bookingpage extends AppCompatActivity {
                 Intent in1 = new Intent(bookingpage.this,Calendar.class);
                 in1.putExtra("name",name);
                 startActivity(in1);
+            }
+        });
+
+        mapbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it3 = new Intent(bookingpage.this,Maps.class);
+                it3.putExtra("name",tvbname.getText().toString());
+                it3.putExtra("place",tvbplace.getText().toString());
+                startActivity(it3);
             }
         });
 

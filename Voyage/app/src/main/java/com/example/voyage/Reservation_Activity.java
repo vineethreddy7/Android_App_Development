@@ -34,6 +34,7 @@ public class Reservation_Activity extends AppCompatActivity {
         b = db.getBooking1(email);
         resRv.setLayoutManager(new LinearLayoutManager(this));
         ad = new list_reservation_adapter(this,b);
+        ad.notifyDataSetChanged();
         resRv.setAdapter(ad);
     }
 }

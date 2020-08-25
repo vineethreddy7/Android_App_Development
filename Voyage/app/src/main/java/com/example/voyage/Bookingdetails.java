@@ -11,12 +11,13 @@ import android.widget.TextView;
 
 public class Bookingdetails extends AppCompatActivity {
     TextView bidtv,bnametv,bdatetv,bprivetv, bservicetv, btaxtv, bfinaltv;
-    Button paymentbtn;
+    Button done;
     DataBase db;
     Booking b;
     long id;
     Double servicecharge;
     Double price, tax, finalprice;
+    String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +30,13 @@ public class Bookingdetails extends AppCompatActivity {
         bservicetv = findViewById(R.id.tvservice);
         btaxtv = findViewById(R.id.tvTax);
         bfinaltv = findViewById(R.id.tvfinalbfinal);
-        paymentbtn = findViewById(R.id.btnPayment);
+        done = findViewById(R.id.btnDone);
         bookingpage bp = new bookingpage();
         Intent i = getIntent();
         id = i.getLongExtra("id",0);
         Log.d("ID is ",""+id);
+        email = i.getStringExtra("email");
+        Log.d("Email789 is",""+email);
         db = new DataBase(this);
         b = db.getBooking(id);
         bidtv.setText(String.valueOf(b.getId()));
@@ -47,10 +50,12 @@ public class Bookingdetails extends AppCompatActivity {
         btaxtv.setText("$"+String.valueOf(Math.round(tax)));
         finalprice = price + servicecharge + tax;
         bfinaltv.setText("$"+String.valueOf(Math.round(finalprice)));
-        paymentbtn.setOnClickListener(new View.OnClickListener() {
+        done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Bookingdetails.this,PaymentActivity.class));
+                Intent it2 = new Intent(Bookingdetails.this,HomeScreenActivity.class);
+                it2.putExtra("email",email);
+                startActivity(it2);
             }
         });
 

@@ -28,6 +28,8 @@ public class Mybookings extends AppCompatActivity {
         mbRV = findViewById(R.id.rvMybooking);
         mbRV.setLayoutManager(new LinearLayoutManager(this));
         ab = new list_mybooking_adapter(this,b,db);
+        ab.notifyDataSetChanged();
+        mbRV.invalidate();
         mbRV.setAdapter(ab);
     }
 }

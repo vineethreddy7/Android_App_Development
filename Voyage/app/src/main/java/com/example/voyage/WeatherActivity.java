@@ -3,6 +3,9 @@ package com.example.voyage;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -24,9 +27,9 @@ import static com.android.volley.Request.Method.*;
 
 public class WeatherActivity extends AppCompatActivity {
     TextView wplacetv, wdatetv, wtemptv, wforecasttv,wdesctv;
-    Double lat;
-    Double lon;
+    EditText placeEt;
 
+    Button search;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,8 +39,18 @@ public class WeatherActivity extends AppCompatActivity {
         wtemptv = findViewById(R.id.tvwTemp);
         wforecasttv = findViewById(R.id.tvwforecast);
         wdesctv = findViewById(R.id.tvwdesc);
+        placeEt = findViewById(R.id.etplace);
+        search = findViewById(R.id.btnws);
        // weather(43.65,-79.63);
-        weather1("Toronto");
+
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String name = placeEt.getText().toString();
+                weather1(name);
+                name = "";
+            }
+        });
 
     }
 

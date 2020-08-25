@@ -182,12 +182,12 @@
         app:layout_constraintTop_toBottomOf="@+id/tvfinalbname" />
 
     <Button
-        android:id="@+id/btnPayment"
+        android:id="@+id/btnDone"
         android:layout_width="205dp"
         android:layout_height="47dp"
         android:layout_marginBottom="20dp"
         android:background="#5E35B1"
-        android:text="proceed to payment"
+        android:text="DONE"
         android:textColor="#F8F1F1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

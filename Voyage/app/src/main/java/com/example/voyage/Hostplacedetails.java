@@ -152,7 +152,9 @@ public class Hostplacedetails extends AppCompatActivity implements AdapterView.O
                     int a = db.editOffering(of);
                   //  Toast.makeText(Hostplacedetails.this, "Offering Edited " + a, Toast.LENGTH_SHORT).show();
                 }
-                startActivity(new Intent(Hostplacedetails.this,Available_Activity.class));
+                Intent it3 = new Intent(getApplicationContext(),Available_Activity.class);
+                it3.putExtra("email",email);
+                startActivity(it3);
             }
         });
        cancelbtn.setOnClickListener(new View.OnClickListener() {

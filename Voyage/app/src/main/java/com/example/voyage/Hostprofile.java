@@ -89,6 +89,14 @@ Bitmap newimage;
                 }
                 db.editHost(h);
                 Toast.makeText(Hostprofile.this,"Successful",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(Hostprofile.this,HostHomeScreenActivity.class));
+            }
+        });
+        HCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Hostprofile.this,HostHomeScreenActivity.class));
+
             }
         });
 

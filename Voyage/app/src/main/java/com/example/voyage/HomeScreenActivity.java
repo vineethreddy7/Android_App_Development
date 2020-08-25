@@ -63,12 +63,13 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
     final int period = 20;
     final int height = 20;
     int a;
-    Intent i11 = getIntent();
+
     static String email11;
+    String e;
 
 
 
-    String items[] = {"","Water Activities","Mountain Activities","Hotels","Restaurants","Cottages","Monument Visits","Snow Activities","Others"};
+    String items[] = {"Select","Water Activities","Mountain Activities","Hotels","Restaurants","Cottages","Monument Visits","Snow Activities","Others"};
 
 
 
@@ -96,6 +97,7 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
        // add();
         Intent i11 = getIntent();
         email11 = i11.getStringExtra("email");
+        Log.d("Email111 is",""+email11);
         db = new DataBase(this);
         offering = db.getOfferings1();
         places.clear();
@@ -155,6 +157,7 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
         rv.setLayoutManager(new LinearLayoutManager(this,RecyclerView.HORIZONTAL,false));
 
         ad = new list_place_adapter(this,offering);
+        ad.notifyDataSetChanged();
 
         rv.setAdapter(ad);
 
@@ -195,7 +198,8 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
         }
         if(id == R.id.bookings){
             Intent itt = new Intent(this,Mybookings.class);
-            itt.putExtra("email",email);
+            itt.putExtra("email",email11);
+            Log.d("Email is",""+email11);
             startActivity(itt);
         }
         if(id == R.id.visited){
@@ -208,6 +212,7 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
         if(id == R.id.translator){
             startActivity(new Intent(this,Translatoractivity.class));
         }
+
         return false;
     }
 
@@ -215,7 +220,7 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         type = items[i];
-        if(!type.equals("")){
+      /*  if(!type.equals("")){
         Toast.makeText(this, "" + type, Toast.LENGTH_SHORT).show();
         searchoffering.clear();
         newsearchoffering.clear();
@@ -252,7 +257,22 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
         }
         rv.setAdapter(ad);
       //  searchoffering.clear();
-
+        */
+      Log.d("Spiiner value is",""+type);
+      if(!type.equals("Select")){
+          searchoffering.clear();
+          for(int b=0;b<offering.size();b++){
+              if(offering.get(b).getType().equals(type)){
+                  searchoffering.add(offering.get(b));
+              }
+          }
+          ad = new list_place_adapter(this,searchoffering);
+          rv.setAdapter(ad);
+      }
+      else if(type.equals("Select")){
+          ad = new list_place_adapter(this,offering);
+          rv.setAdapter(ad);
+      }
 
     }
 
@@ -340,6 +360,13 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
         }
         if(id == R.id.visited){
             startActivity(new Intent(this,Othersvisited.class));
+        }
+        if(id == R.id.weather){
+            Intent it1 = new Intent(this,WeatherActivity.class);
+            startActivity(it1);
+        }
+        if(id == R.id.translator){
+            startActivity(new Intent(this,Translatoractivity.class));
         }
         return false;
     }

@@ -15,6 +15,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="@color/yellow"
+        android:clickable="true"
         app:itemTextColor="@color/black"
         app:menu="@menu/host_drawer_menu" />
 

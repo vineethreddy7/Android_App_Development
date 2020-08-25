@@ -3,11 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="138dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="136dp">
+        android:layout_height="136dp"
+        android:background="#FF8A80">
 
         <TextView
             android:id="@+id/tvpovpname"
@@ -16,6 +17,7 @@
             android:layout_marginStart="40dp"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="28dp"
+            android:textColor="#F8F5F5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,6 +26,7 @@
             android:layout_width="110dp"
             android:layout_height="25dp"
             android:layout_marginTop="24dp"
+            android:textColor="#FBFAFA"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.519"
             app:layout_constraintStart_toEndOf="@+id/tvpovpname"
@@ -34,6 +37,7 @@
             android:layout_width="281dp"
             android:layout_height="25dp"
             android:layout_marginBottom="20dp"
+            android:textColor="#FAF6F6"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.307"

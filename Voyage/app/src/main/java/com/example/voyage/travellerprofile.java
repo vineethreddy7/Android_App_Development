@@ -93,7 +93,14 @@ public class travellerprofile extends AppCompatActivity {
                 }
                 db.editTraveller(t);
                 Toast.makeText(travellerprofile.this,"Successful",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(travellerprofile.this,HomeScreenActivity.class));
 
+            }
+        });
+        TCancelB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(travellerprofile.this,HomeScreenActivity.class));
             }
         });
     }

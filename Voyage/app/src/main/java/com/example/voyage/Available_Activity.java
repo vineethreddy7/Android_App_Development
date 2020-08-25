@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -32,6 +33,7 @@ public class Available_Activity extends AppCompatActivity {
         db = new DataBase(this);
         Intent i = getIntent();
         email = i.getStringExtra("email");
+        Log.d("Email000 is",""+email);
         o = db.getOfferings(email);
         hostplacesRV = findViewById(R.id.rvHostPlaces);
         addPlace = findViewById(R.id.btnAddplace);
@@ -39,6 +41,7 @@ public class Available_Activity extends AppCompatActivity {
 
         hostplacesRV.setLayoutManager(new LinearLayoutManager(this));
         ad = new list_offering_adapter(this,o);
+        ad.notifyDataSetChanged();
         hostplacesRV.setAdapter(ad);
 
         addPlace.setOnClickListener(new View.OnClickListener() {

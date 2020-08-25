@@ -22,12 +22,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMybooking"
-        android:layout_width="368dp"
-        android:layout_height="322dp"
+        android:layout_width="369dp"
+        android:layout_height="484dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView50"
-        app:layout_constraintVertical_bias="0.116" />
+        app:layout_constraintVertical_bias="0.287" />
 </androidx.constraintlayout.widget.ConstraintLayout>

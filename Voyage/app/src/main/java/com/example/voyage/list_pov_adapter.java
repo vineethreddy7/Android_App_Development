@@ -40,10 +40,10 @@ public class list_pov_adapter extends RecyclerView.Adapter<list_pov_adapter.View
         String email = booking.get(i).getTravelleremail();
         long oid = booking.get(i).getOfferingid();
         String tfname = db.getTraveller(email).getFname();
-        String tlname = db.getTraveller(email).getLname();
+       String tlname = db.getTraveller(email).getLname();
         String name = db.getO1(oid).getName();
         String date = booking.get(i).getDate();
-        holder.povpnametv.setText(name);
+        holder.povpnametv.setText(name);//name
         holder.povdatetv.setText(date);
         holder.povnametv.setText(tfname+" "+tlname);
 
