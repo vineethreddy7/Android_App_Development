@@ -93,7 +93,9 @@ public class travellerprofile extends AppCompatActivity {
                 }
                 db.editTraveller(t);
               //  Toast.makeText(travellerprofile.this,"Successful",Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(travellerprofile.this,HomeScreenActivity.class));
+                Intent it5 = new Intent(travellerprofile.this,HomeScreenActivity.class);
+                it5.putExtra("email",email);
+                startActivity(it5);
 
             }
         });

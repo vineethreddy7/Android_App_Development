@@ -202,9 +202,7 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
             Log.d("Emailbook is",""+email11);
             startActivity(itt);
         }
-        if(id == R.id.visited){
-            startActivity(new Intent(this,Othersvisited.class));
-        }
+
         if(id == R.id.weather){
             Intent it1 = new Intent(this,WeatherActivity.class);
             startActivity(it1);
@@ -358,9 +356,7 @@ public class HomeScreenActivity extends AppCompatActivity implements PopupMenu.O
             itt.putExtra("email",email);
             startActivity(itt);
         }
-        if(id == R.id.visited){
-            startActivity(new Intent(this,Othersvisited.class));
-        }
+
         if(id == R.id.weather){
             Intent it1 = new Intent(this,WeatherActivity.class);
             startActivity(it1);

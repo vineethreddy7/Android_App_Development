@@ -52,7 +52,7 @@
         android:fontFamily="@font/chewy"
         android:hint="Enter Phone"
         android:inputType="textPersonName"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textColorHint="#E3C7C7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.285"
@@ -70,7 +70,7 @@
         android:fontFamily="@font/chewy"
         android:hint="Enter Email"
         android:inputType="textPersonName"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textColorHint="#E3C7C7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -104,7 +104,7 @@
         android:fontFamily="@font/chewy"
         android:hint="Enter Last Name"
         android:inputType="textPersonName"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textColorHint="#E3C7C7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.272"
@@ -232,8 +232,8 @@
         android:id="@+id/HButtonCreate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginLeft="76dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
         android:layout_marginBottom="30dp"
         android:background="@color/yellow"
         android:fontFamily="@font/aclonica"
@@ -243,7 +243,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView27"
-        app:layout_constraintVertical_bias="0.27" />
+        app:layout_constraintVertical_bias="0.291" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

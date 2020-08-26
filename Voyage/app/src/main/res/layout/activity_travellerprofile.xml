@@ -142,8 +142,8 @@
         android:id="@+id/btnTSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="104dp"
-        android:layout_marginLeft="104dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
         android:layout_marginTop="60dp"
         android:layout_marginBottom="30dp"
         android:background="#D3EBF6"
@@ -152,8 +152,8 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView19"
-        app:layout_constraintVertical_bias="0.147" />
+        app:layout_constraintTop_toBottomOf="@+id/tv3TEmail"
+        app:layout_constraintVertical_bias="0.13" />
 
     <Button
         android:id="@+id/btnTCancel"

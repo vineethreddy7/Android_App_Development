@@ -23,8 +23,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMybooking"
-        android:layout_width="411dp"
-        android:layout_height="617dp"
+        android:layout_width="401dp"
+        android:layout_height="579dp"
         android:background="@android:drawable/divider_horizontal_bright"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

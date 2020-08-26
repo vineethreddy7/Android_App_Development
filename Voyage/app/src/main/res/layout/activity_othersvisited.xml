@@ -23,8 +23,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPOV"
-        android:layout_width="413dp"
-        android:layout_height="615dp"
+        android:layout_width="400dp"
+        android:layout_height="569dp"
         android:background="@android:drawable/divider_horizontal_bright"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

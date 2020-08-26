@@ -78,7 +78,7 @@
             android:layout_width="405dp"
             android:layout_height="238dp"
             android:layout_marginTop="20dp"
-            android:background="@color/material_on_background_disabled"
+            android:background="@android:drawable/divider_horizontal_bright"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.454"
             app:layout_constraintStart_toStartOf="parent"
@@ -88,12 +88,14 @@
             android:id="@+id/rvOffers"
             android:layout_width="400dp"
             android:layout_height="216dp"
-            android:layout_marginBottom="72dp"
-            android:background="@color/material_on_background_disabled"
+            android:layout_marginBottom="50dp"
+            android:background="@android:drawable/divider_horizontal_bright"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.272"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView30"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/textView30"

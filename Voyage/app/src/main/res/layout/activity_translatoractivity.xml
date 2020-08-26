@@ -31,7 +31,7 @@
         android:gravity="top"
         android:hint="Enter text here"
         android:inputType="textPersonName"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView53" />
@@ -57,6 +57,7 @@
         android:layout_marginBottom="20dp"
         android:fontFamily="@font/chewy"
         android:textColor="#FFFFFF"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.518"
