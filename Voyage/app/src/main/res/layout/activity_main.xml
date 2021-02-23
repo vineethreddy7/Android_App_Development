@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/wal"
+    android:background="@drawable/imgg"
     tools:context=".MainActivity">
 
     <TextView
@@ -76,7 +76,7 @@
         android:layout_marginStart="116dp"
         android:layout_marginLeft="116dp"
         android:layout_marginTop="32dp"
-        android:background="#E2EC59"
+        android:background="#B2EBF2"
         android:fontFamily="@font/aclonica"
         android:text="LogIn"
         app:layout_constraintStart_toStartOf="parent"
@@ -87,7 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:background="#E2EC59"
+        android:background="#B2EBF2"
         android:fontFamily="@font/aclonica"
         android:text="SignUp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -100,7 +100,7 @@
         android:layout_width="413dp"
         android:layout_height="193dp"
         android:layout_marginTop="52dp"
-        android:background="#E3D987"
+        android:background="@drawable/wall"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -112,7 +112,7 @@
         android:layout_marginTop="92dp"
         android:fontFamily="@font/rock_salt"
         android:text="Voyage"
-        android:textColor="#000000"
+        android:textColor="#FFFEFE"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -156,6 +156,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnTLogin"
         app:layout_constraintVertical_bias="0.507"
-        app:srcCompat="@drawable/familytrip" />
+        app:srcCompat="@drawable/hostpic" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

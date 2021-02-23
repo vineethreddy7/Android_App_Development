@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/wal"
+    android:background="@drawable/imgg"
     tools:context=".MainActivity2">
 
     <TextView
@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:background="#E2EC59"
+        android:background="#B2EBF2"
         android:fontFamily="@font/aclonica"
         android:text="SignUp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,7 +59,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hostlogin"
         app:layout_constraintVertical_bias="0.675"
-        app:srcCompat="@drawable/business" />
+        app:srcCompat="@drawable/travelpic45" />
 
     <EditText
         android:id="@+id/tv1HEmail"
@@ -82,7 +82,7 @@
         android:layout_width="413dp"
         android:layout_height="193dp"
         android:layout_marginTop="52dp"
-        android:background="#E3D987"
+        android:background="@drawable/wall"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -91,13 +91,14 @@
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="76dp"
         android:fontFamily="@font/rock_salt"
         android:text="Voyage"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.535"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -108,7 +109,7 @@
         android:layout_marginStart="76dp"
         android:layout_marginLeft="76dp"
         android:layout_marginTop="52dp"
-        android:background="#E2EC59"
+        android:background="#B2EBF2"
         android:fontFamily="@font/aclonica"
         android:text="LogIn"
         app:layout_constraintStart_toStartOf="parent"
@@ -137,7 +138,7 @@
         android:layout_marginTop="160dp"
         android:fontFamily="@font/rock_salt"
         android:text="Where to next..?"
-        android:textColor="#000000"
+        android:textColor="#262726"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintStart_toStartOf="parent"
@@ -150,7 +151,7 @@
         android:layout_marginTop="188dp"
         android:fontFamily="@font/rock_salt"
         android:text="Expand your services to next level."
-        android:textColor="#478E4A"
+        android:textColor="#2B2E2B"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.535"
         app:layout_constraintStart_toStartOf="parent"

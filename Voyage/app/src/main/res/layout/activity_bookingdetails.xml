@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/wal"
+    android:background="@drawable/img"
     tools:context=".Bookingdetails">
 
     <TextView
@@ -201,7 +201,7 @@
         android:layout_width="205dp"
         android:layout_height="47dp"
         android:layout_marginBottom="20dp"
-        android:background="@color/yellow"
+        android:background="#B2EBF2"
         android:fontFamily="@font/aclonica"
         android:text="DONE"
         android:textColor="#1C1B1B"

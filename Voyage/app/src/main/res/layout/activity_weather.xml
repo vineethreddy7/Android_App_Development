@@ -109,7 +109,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:background="@color/yellow"
+        android:background="#B2EBF2"
         android:fontFamily="@font/aclonica"
         android:text="Search"
         android:textColor="#000000"

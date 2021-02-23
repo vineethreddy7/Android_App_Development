@@ -55,7 +55,8 @@ public class WeatherActivity extends AppCompatActivity {
     }
 
     public void weather(Double lat,Double lon){
-        String url = "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid=ca1f1182e1b8a0a482c9ffbbbe67ca42";
+       // String url = "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid=ca1f1182e1b8a0a482c9ffbbbe67ca42";
+        String url = "api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid=ca1f1182e1b8a0a482c9ffbbbe67ca42";
         JsonObjectRequest jo = new JsonObjectRequest(url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -85,6 +86,7 @@ public class WeatherActivity extends AppCompatActivity {
 
     public void weather1(String name){
         String url = "http://api.openweathermap.org/data/2.5/weather?q="+name+"&appid=ca1f1182e1b8a0a482c9ffbbbe67ca42";
+       // String url = "api.openweathermap.org/data/2.5/weather?q="+name+"&appid=8cbf81fca0fcd5bb9d45012dd8c44bcc";
         JsonObjectRequest jo = new JsonObjectRequest(url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
